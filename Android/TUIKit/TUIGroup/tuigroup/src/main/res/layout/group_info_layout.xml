@@ -207,19 +207,19 @@
                 app:isTop="true"
                 app:name="@string/group_type" />
 
-            <com.tencent.qcloud.tuikit.timcommon.component.LineControllerView
-                android:id="@+id/join_type_bar"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/group_profile_item_height"
-                app:isTop="true"
-                app:name="@string/join_group_type" />
+<!--            <com.tencent.qcloud.tuikit.timcommon.component.LineControllerView-->
+<!--                android:id="@+id/join_type_bar"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/group_profile_item_height"-->
+<!--                app:isTop="true"-->
+<!--                app:name="@string/join_group_type" />-->
 
-            <com.tencent.qcloud.tuikit.timcommon.component.LineControllerView
-                android:id="@+id/invite_type_bar"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/group_profile_item_height"
-                app:isTop="true"
-                app:name="@string/invite_group_type" />
+<!--            <com.tencent.qcloud.tuikit.timcommon.component.LineControllerView-->
+<!--                android:id="@+id/invite_type_bar"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/group_profile_item_height"-->
+<!--                app:isTop="true"-->
+<!--                app:name="@string/invite_group_type" />-->
 
             <com.tencent.qcloud.tuikit.timcommon.component.LineControllerView
                 android:id="@+id/self_nickname_bar"
@@ -280,48 +280,48 @@
                 app:isSwitch="true"
                 app:name="@string/chat_to_top" />
 
-            <com.tencent.qcloud.tuikit.timcommon.component.LineControllerView
-                android:id="@+id/chat_background"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/group_profile_item_height"
-                app:canNav="true"
-                app:name="@string/profile_chat_background"
-                tools:visibility="visible" />
+<!--            <com.tencent.qcloud.tuikit.timcommon.component.LineControllerView-->
+<!--                android:id="@+id/chat_background"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/group_profile_item_height"-->
+<!--                app:canNav="true"-->
+<!--                app:name="@string/profile_chat_background"-->
+<!--                tools:visibility="visible" />-->
 
-            <TextView
-                android:id="@+id/group_clear_msg_button"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:textColor="?attr/core_error_tip_color"
-                android:textSize="16.32sp"
-                tools:visibility="visible" />
+<!--            <TextView-->
+<!--                android:id="@+id/group_clear_msg_button"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:background="#ffffff"-->
+<!--                android:gravity="center"-->
+<!--                android:textColor="?attr/core_error_tip_color"-->
+<!--                android:textSize="16.32sp"-->
+<!--                tools:visibility="visible" />-->
 
-            <TextView
-                android:id="@+id/group_change_owner_button"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="0.6dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:text="@string/group_transfer_group_owner"
-                android:textColor="?attr/core_error_tip_color"
-                android:textSize="16.32sp"
-                android:visibility="gone"
-                tools:visibility="visible" />
+<!--            <TextView-->
+<!--                android:id="@+id/group_change_owner_button"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_marginTop="0.6dp"-->
+<!--                android:background="#ffffff"-->
+<!--                android:gravity="center"-->
+<!--                android:text="@string/group_transfer_group_owner"-->
+<!--                android:textColor="?attr/core_error_tip_color"-->
+<!--                android:textSize="16.32sp"-->
+<!--                android:visibility="gone"-->
+<!--                tools:visibility="visible" />-->
 
-            <TextView
-                android:id="@+id/group_dissolve_button"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="0.6dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:textColor="?attr/core_error_tip_color"
-                android:textSize="16.32sp"
-                tools:visibility="visible" />
+<!--            <TextView-->
+<!--                android:id="@+id/group_dissolve_button"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_marginTop="0.6dp"-->
+<!--                android:background="#ffffff"-->
+<!--                android:gravity="center"-->
+<!--                android:textColor="?attr/core_error_tip_color"-->
+<!--                android:textSize="16.32sp"-->
+<!--                tools:visibility="visible" />-->
 
             <LinearLayout
                 android:id="@+id/warning_extension_list"

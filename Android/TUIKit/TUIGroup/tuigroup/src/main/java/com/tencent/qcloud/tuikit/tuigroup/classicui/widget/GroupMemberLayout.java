@@ -68,7 +68,7 @@ public class GroupMemberLayout extends LinearLayout implements IGroupMemberLayou
     private void init() {
         inflate(getContext(), R.layout.group_member_layout, this);
         mTitleBar = findViewById(R.id.group_member_title_bar);
-        mTitleBar.setTitle(getContext().getString(R.string.manager), ITitleBarLayout.Position.RIGHT);
+//        mTitleBar.setTitle(getContext().getString(R.string.manager), ITitleBarLayout.Position.RIGHT);
         mTitleBar.getRightIcon().setVisibility(GONE);
         mTitleBar.setOnRightClickListener(new OnClickListener() {
             @Override

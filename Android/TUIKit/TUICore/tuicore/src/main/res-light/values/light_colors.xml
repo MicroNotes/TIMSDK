@@ -12,7 +12,7 @@
     <color name="core_primary_color_light">#FF147AFF</color>
     <color name="core_error_tip_color_light">#FFFF584C</color>
     <color name="core_success_tip_color_light">#FF26CB3E</color>
-    <color name="core_bubble_bg_color_light">#FFDCEAFD</color>
+    <color name="core_bubble_bg_color_light">#95EC69</color>
     <color name="core_divide_color_light">#FFE5E5E5</color>
     <color name="core_border_color_light">#FFDDDDDD</color>
     <color name="core_header_start_color_light">#FFEBF0F6</color>

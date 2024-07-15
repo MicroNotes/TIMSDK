@@ -153,15 +153,15 @@ public class GroupInfoLayout extends LinearLayout implements IGroupMemberLayout,
         mGroupManageView.setOnClickListener(this);
 
         
-        mJoinTypeView = findViewById(R.id.join_type_bar);
-        mJoinTypeView.setOnClickListener(this);
-        mJoinTypeView.setCanNav(true);
+//        mJoinTypeView = findViewById(R.id.join_type_bar);
+//        mJoinTypeView.setOnClickListener(this);
+//        mJoinTypeView.setCanNav(true);
         mJoinTypes.addAll(Arrays.asList(getResources().getStringArray(R.array.group_join_type)));
 
         
-        mInviteTypeView = findViewById(R.id.invite_type_bar);
-        mInviteTypeView.setOnClickListener(this);
-        mInviteTypeView.setCanNav(true);
+//        mInviteTypeView = findViewById(R.id.invite_type_bar);
+//        mInviteTypeView.setOnClickListener(this);
+//        mInviteTypeView.setCanNav(true);
         mInviteTypes.addAll(Arrays.asList(getResources().getStringArray(R.array.group_invite_type)));
 
         
@@ -177,20 +177,20 @@ public class GroupInfoLayout extends LinearLayout implements IGroupMemberLayout,
         mFoldGroupChatSwitchView = findViewById(R.id.fold_group_chat);
 
         
-        mDissolveBtn = findViewById(R.id.group_dissolve_button);
-        mDissolveBtn.setOnClickListener(this);
+//        mDissolveBtn = findViewById(R.id.group_dissolve_button);
+//        mDissolveBtn.setOnClickListener(this);
 
         
-        mClearMsgBtn = findViewById(R.id.group_clear_msg_button);
-        mClearMsgBtn.setOnClickListener(this);
+//        mClearMsgBtn = findViewById(R.id.group_clear_msg_button);
+//        mClearMsgBtn.setOnClickListener(this);
 
         
-        mChangeOwnerBtn = findViewById(R.id.group_change_owner_button);
-        mChangeOwnerBtn.setOnClickListener(this);
+//        mChangeOwnerBtn = findViewById(R.id.group_change_owner_button);
+//        mChangeOwnerBtn.setOnClickListener(this);
 
-        mChatBackground = findViewById(R.id.chat_background);
-        mChatBackground.setOnClickListener(this);
-        mChatBackground.setCanNav(true);
+//        mChatBackground = findViewById(R.id.chat_background);
+//        mChatBackground.setOnClickListener(this);
+//        mChatBackground.setCanNav(true);
 
         warningExtensionListView = findViewById(R.id.warning_extension_list);
     }
@@ -202,11 +202,11 @@ public class GroupInfoLayout extends LinearLayout implements IGroupMemberLayout,
         if (!mGroupInfo.isCanManagerGroup()) {
             mGroupDetailArrow.setVisibility(GONE);
         }
-        if (mGroupInfo.isOwner()) {
-            mChangeOwnerBtn.setVisibility(VISIBLE);
-        } else {
-            mChangeOwnerBtn.setVisibility(GONE);
-        }
+//        if (mGroupInfo.isOwner()) {
+//            mChangeOwnerBtn.setVisibility(VISIBLE);
+//        } else {
+//            mChangeOwnerBtn.setVisibility(GONE);
+//        }
         setupExtension();
     }
 
@@ -439,8 +439,8 @@ public class GroupInfoLayout extends LinearLayout implements IGroupMemberLayout,
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.putExtra(TUIGroupConstants.Group.GROUP_INFO, mGroupInfo);
             getContext().startActivity(intent);
-        } else if (v == mChangeOwnerBtn) {
-            changeGroupOwner();
+//        } else if (v == mChangeOwnerBtn) {
+//            changeGroupOwner();
         } else if (v.getId() == R.id.chat_background) {
             if (mListener != null) {
                 mListener.onSetChatBackground();
@@ -504,8 +504,8 @@ public class GroupInfoLayout extends LinearLayout implements IGroupMemberLayout,
         }
 
         mGroupTypeView.setContent(convertGroupText(info.getGroupType()));
-        mJoinTypeView.setContent(mJoinTypes.get(info.getJoinType()));
-        mInviteTypeView.setContent(mInviteTypes.get(info.getInviteType()));
+//        mJoinTypeView.setContent(mJoinTypes.get(info.getJoinType()));
+//        mInviteTypeView.setContent(mInviteTypes.get(info.getInviteType()));
         mNickView.setContent(mPresenter.getNickName());
 
         mTopSwitchView.setCheckListener(null);
@@ -622,21 +622,21 @@ public class GroupInfoLayout extends LinearLayout implements IGroupMemberLayout,
             }
         });
 
-        mDissolveBtn.setText(R.string.dissolve);
-        mClearMsgBtn.setText(R.string.clear_message);
-        if (mGroupInfo.isOwner()) {
-            mJoinTypeView.setVisibility(VISIBLE);
-            if (mGroupInfo.getGroupType().equals(TUIConstants.GroupType.TYPE_WORK) || mGroupInfo.getGroupType().equals(TUIConstants.GroupType.TYPE_PRIVATE)) {
-                mDissolveBtn.setText(R.string.exit_group);
-                mJoinTypeView.setCanNav(false);
-            }
-        } else {
-            mJoinTypeView.setCanNav(false);
-            mJoinTypeView.setOnClickListener(null);
-            mInviteTypeView.setCanNav(false);
-            mInviteTypeView.setOnClickListener(null);
-            mDissolveBtn.setText(R.string.exit_group);
-        }
+//        mDissolveBtn.setText(R.string.dissolve);
+//        mClearMsgBtn.setText(R.string.clear_message);
+//        if (mGroupInfo.isOwner()) {
+//            mJoinTypeView.setVisibility(VISIBLE);
+//            if (mGroupInfo.getGroupType().equals(TUIConstants.GroupType.TYPE_WORK) || mGroupInfo.getGroupType().equals(TUIConstants.GroupType.TYPE_PRIVATE)) {
+//                mDissolveBtn.setText(R.string.exit_group);
+//                mJoinTypeView.setCanNav(false);
+//            }
+//        } else {
+//            mJoinTypeView.setCanNav(false);
+//            mJoinTypeView.setOnClickListener(null);
+//            mInviteTypeView.setCanNav(false);
+//            mInviteTypeView.setOnClickListener(null);
+//            mDissolveBtn.setText(R.string.exit_group);
+//        }
 
         if (mGroupInfo.isCanManagerGroup()) {
             mGroupManageView.setVisibility(VISIBLE);
@@ -657,20 +657,21 @@ public class GroupInfoLayout extends LinearLayout implements IGroupMemberLayout,
         memberList.setLayoutParams(layoutParams);
     }
 
+    //群类型，写死皇包车服务群，看后续需求
     private String convertGroupText(String groupType) {
-        String groupText = "";
-        if (TextUtils.isEmpty(groupType)) {
-            return groupText;
-        }
-        if (TextUtils.equals(groupType, TUIConstants.GroupType.TYPE_PRIVATE) || TextUtils.equals(groupType, TUIConstants.GroupType.TYPE_WORK)) {
-            groupText = getContext().getString(R.string.private_group);
-        } else if (TextUtils.equals(groupType, TUIConstants.GroupType.TYPE_PUBLIC)) {
-            groupText = getContext().getString(R.string.public_group);
-        } else if (TextUtils.equals(groupType, TUIConstants.GroupType.TYPE_CHAT_ROOM) || TextUtils.equals(groupType, TUIConstants.GroupType.TYPE_MEETING)) {
-            groupText = getContext().getString(R.string.chat_room);
-        } else if (TextUtils.equals(groupType, TUIConstants.GroupType.TYPE_COMMUNITY)) {
-            groupText = getContext().getString(R.string.community_group);
-        }
+        String groupText = "皇包车服务群";
+//        if (TextUtils.isEmpty(groupType)) {
+//            return groupText;
+//        }
+//        if (TextUtils.equals(groupType, TUIConstants.GroupType.TYPE_PRIVATE) || TextUtils.equals(groupType, TUIConstants.GroupType.TYPE_WORK)) {
+//            groupText = getContext().getString(R.string.private_group);
+//        } else if (TextUtils.equals(groupType, TUIConstants.GroupType.TYPE_PUBLIC)) {
+//            groupText = getContext().getString(R.string.public_group);
+//        } else if (TextUtils.equals(groupType, TUIConstants.GroupType.TYPE_CHAT_ROOM) || TextUtils.equals(groupType, TUIConstants.GroupType.TYPE_MEETING)) {
+//            groupText = getContext().getString(R.string.chat_room);
+//        } else if (TextUtils.equals(groupType, TUIConstants.GroupType.TYPE_COMMUNITY)) {
+//            groupText = getContext().getString(R.string.community_group);
+//        }
         return groupText;
     }
 
@@ -689,7 +690,7 @@ public class GroupInfoLayout extends LinearLayout implements IGroupMemberLayout,
                 ToastUtil.toastLongMessage(getResources().getString(R.string.modify_group_notice_success));
                 break;
             case TUIGroupConstants.Group.MODIFY_GROUP_JOIN_TYPE:
-                mJoinTypeView.setContent(mJoinTypes.get((Integer) value));
+//                mJoinTypeView.setContent(mJoinTypes.get((Integer) value));
                 break;
             case TUIGroupConstants.Group.MODIFY_MEMBER_NAME:
                 ToastUtil.toastLongMessage(getResources().getString(R.string.modify_nickname_success));
