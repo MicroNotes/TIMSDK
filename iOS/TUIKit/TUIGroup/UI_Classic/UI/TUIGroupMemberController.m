@@ -68,15 +68,15 @@
     self.navigationItem.leftBarButtonItems = @[ spaceItem, leftItem ];
     self.parentViewController.navigationItem.leftBarButtonItems = @[ spaceItem, leftItem ];
 
-    // right
-    UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [rightButton addTarget:self action:@selector(rightBarButtonClick) forControlEvents:UIControlEventTouchUpInside];
-    [rightButton setTitle:TIMCommonLocalizableString(TUIKitGroupProfileManage) forState:UIControlStateNormal];
-    [rightButton setTitleColor:TIMCommonDynamicColor(@"nav_title_text_color", @"#000000") forState:UIControlStateNormal];
-    rightButton.titleLabel.font = [UIFont systemFontOfSize:16];
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
-    self.navigationItem.rightBarButtonItem = rightItem;
-    self.parentViewController.navigationItem.rightBarButtonItem = rightItem;
+    // right - 群成员右上角按钮
+//    UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+//    [rightButton addTarget:self action:@selector(rightBarButtonClick) forControlEvents:UIControlEventTouchUpInside];
+//    [rightButton setTitle:TIMCommonLocalizableString(TUIKitGroupProfileManage) forState:UIControlStateNormal];
+//    [rightButton setTitleColor:TIMCommonDynamicColor(@"nav_title_text_color", @"#000000") forState:UIControlStateNormal];
+//    rightButton.titleLabel.font = [UIFont systemFontOfSize:16];
+//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+//    self.navigationItem.rightBarButtonItem = rightItem;
+//    self.parentViewController.navigationItem.rightBarButtonItem = rightItem;
 
     self.indicatorView.frame = CGRectMake(0, 0, self.view.bounds.size.width, TMessageController_Header_Height);
 

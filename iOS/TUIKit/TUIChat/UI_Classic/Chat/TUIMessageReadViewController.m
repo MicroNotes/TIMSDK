@@ -187,7 +187,7 @@
         messageBackViewHeight = 87;
     }
     [self.messageBackView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.view.mas_safeAreaLayoutGuideTop);
+        make.top.mas_equalTo(self.view.safeAreaLayoutGuide);
         make.leading.mas_equalTo(0);
         make.height.mas_equalTo(messageBackViewHeight);
         make.width.mas_equalTo(self.view);

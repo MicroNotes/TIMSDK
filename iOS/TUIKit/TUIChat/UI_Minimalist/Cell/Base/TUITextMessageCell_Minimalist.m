@@ -100,7 +100,6 @@
         make.width.mas_equalTo(ceil(self.textData.textSize.width));
         make.height.mas_equalTo(ceil(self.textData.textSize.height));
     }];
-    MASAttachKeys(self.textView);
     if (self.voiceReadPoint.hidden == NO) {
         [self.voiceReadPoint mas_remakeConstraints:^(MASConstraintMaker *make) {
           make.top.mas_equalTo(self.bubbleView);
@@ -108,7 +107,7 @@
           make.size.mas_equalTo(CGSizeMake(5, 5));
         }];
     }
-    MASAttachKeys(self.voiceReadPoint);
+    MASAttachKeys(self.textView,self.voiceReadPoint);
     [self layoutBottomContainer];
 
 }

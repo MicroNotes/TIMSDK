@@ -306,7 +306,7 @@
         make.top.mas_equalTo(self.subTitleLabel.mas_top);
         make.trailing.mas_equalTo(self.contentView).mas_offset(- kScale390(8));
     }];
-    MASAttachKeys(self.timeLabel);
+//    MASAttachKeys(self.timeLabel);
 
     [self.lastMessageStatusImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(kScale390(14));
@@ -314,7 +314,7 @@
         make.trailing.mas_equalTo(self.timeLabel.mas_leading).mas_offset(- (kScale390(1) + kScale390(8)));
         make.bottom.mas_equalTo(self.timeLabel.mas_bottom);
     }];
-    MASAttachKeys(self.lastMessageStatusImageView);
+//    MASAttachKeys(self.lastMessageStatusImageView);
     
     [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_greaterThanOrEqualTo(120);
@@ -323,9 +323,7 @@
         make.leading.mas_equalTo(self.headImageView.mas_trailing).mas_offset(kScale390(8));
         make.trailing.mas_equalTo(self.timeLabel.mas_leading).mas_offset(- 2*kScale390(14));
     }];
-    MASAttachKeys(self.titleLabel);
-
-    
+//    MASAttachKeys(self.titleLabel);
 
     [self.subTitleLabel sizeToFit];
     [self.subTitleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -334,7 +332,7 @@
         make.leading.mas_equalTo(self.titleLabel.mas_leading);
         make.trailing.mas_equalTo(self.timeLabel.mas_leading).mas_offset(-kScale390(8));
     }];
-    MASAttachKeys(self.subTitleLabel);
+    MASAttachKeys(self.timeLabel, self.lastMessageStatusImageView, self.titleLabel, self.subTitleLabel);
 
     [self.unReadView.unReadLabel sizeToFit];
     [self.unReadView mas_remakeConstraints:^(MASConstraintMaker *make) {

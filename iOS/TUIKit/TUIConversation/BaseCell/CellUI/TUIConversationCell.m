@@ -335,7 +335,7 @@
             make.centerY.mas_equalTo(self.contentView.mas_centerY);
         }
     }];
-    MASAttachKeys(self.selectedIcon);
+//    MASAttachKeys(self.selectedIcon);
 
     CGFloat imgHeight = height - 2 * (TConversationCell_Margin);
     [self.headImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -348,7 +348,7 @@
             make.leading.mas_equalTo(self.contentView.mas_leading).mas_offset(TConversationCell_Margin + 3);
         }
     }];
-    MASAttachKeys(self.headImageView);
+    MASAttachKeys(self.selectedIcon, self.headImageView);
 
     if ([TUIConfig defaultConfig].avatarType == TAvatarTypeRounded) {
         self.headImageView.layer.masksToBounds = YES;
@@ -383,7 +383,7 @@
             make.top.mas_equalTo(self.contentView.mas_top).mas_offset(TConversationCell_Margin_Text);
             make.trailing.mas_equalTo(self.contentView.mas_trailing).mas_offset(- TConversationCell_Margin_Text);
         }];
-        MASAttachKeys(self.timeLabel);
+//        MASAttachKeys(self.timeLabel);
 
         [self.lastMessageStatusImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.width.mas_equalTo(kScale390(14));
@@ -391,7 +391,7 @@
             make.trailing.mas_equalTo(self.contentView.mas_trailing).mas_offset(- (kScale390(1) + TConversationCell_Margin_Disturb + kScale390(8)));
             make.bottom.mas_equalTo(self.contentView.mas_bottom).mas_offset(kScale390(16));
         }];
-        MASAttachKeys(self.lastMessageStatusImageView);
+//        MASAttachKeys(self.lastMessageStatusImageView);
 
         [self.titleLabel sizeToFit];
         [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -400,7 +400,7 @@
             make.leading.mas_equalTo(self.headImageView.mas_trailing).mas_offset(TConversationCell_Margin);
             make.trailing.mas_lessThanOrEqualTo(self.timeLabel.mas_trailing).mas_offset(- 2*TConversationCell_Margin_Text);
         }];
-        MASAttachKeys(self.titleLabel);
+//        MASAttachKeys(self.titleLabel);
         [self.subTitleLabel sizeToFit];
         [self.subTitleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.height.mas_greaterThanOrEqualTo(self.subTitleLabel);
@@ -408,7 +408,7 @@
             make.leading.mas_equalTo(self.titleLabel);
             make.trailing.mas_equalTo(self.contentView).mas_offset(- 2*TConversationCell_Margin_Text);
         }];
-        MASAttachKeys(self.subTitleLabel);
+//        MASAttachKeys(self.subTitleLabel);
 
         [self.unReadView.unReadLabel sizeToFit];
         [self.unReadView mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -417,7 +417,7 @@
             make.width.mas_equalTo(kScale375(20));
             make.height.mas_equalTo(kScale375(20));
         }];
-        MASAttachKeys(self.unReadView);
+//        MASAttachKeys(self.unReadView);
 
         [self.unReadView.unReadLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.center.mas_equalTo(self.unReadView);
@@ -431,7 +431,7 @@
             make.top.mas_equalTo(self.headImageView.mas_top).mas_offset(1);
             make.width.height.mas_equalTo(TConversationCell_Margin_Disturb_Dot);
         }];
-        MASAttachKeys(self.notDisturbRedDot);
+        MASAttachKeys(self.timeLabel, self.lastMessageStatusImageView, self.titleLabel, self.subTitleLabel, self.unReadView, self.notDisturbRedDot);
 
         [self.notDisturbView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.width.height.mas_equalTo(TConversationCell_Margin_Disturb);

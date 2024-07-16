@@ -201,7 +201,7 @@
         make.top.mas_equalTo(kScale390(42));
     }];
     
-    MASAttachKeys(self.headImg);
+//    MASAttachKeys(self.headImg);
 
     if ([TUIConfig defaultConfig].avatarType == TAvatarTypeRounded) {
         self.headImg.layer.masksToBounds = YES;
@@ -219,7 +219,7 @@
         make.width.mas_equalTo(self.descriptionLabel.frame.size.width);
         make.width.mas_lessThanOrEqualTo(self).multipliedBy(0.5);
     }];
-    MASAttachKeys(self.descriptionLabel);
+//    MASAttachKeys(self.descriptionLabel);
 
     [self.editButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.leading.mas_equalTo(self.descriptionLabel.mas_trailing).mas_equalTo(kScale390(3));
@@ -227,7 +227,7 @@
         make.height.mas_equalTo(30);
         make.width.mas_equalTo(30);
     }];
-    MASAttachKeys(self.editButton);
+    MASAttachKeys(self.headImg, self.descriptionLabel, self.editButton);
     
     [self.idLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.leading.mas_equalTo(self.mas_leading);

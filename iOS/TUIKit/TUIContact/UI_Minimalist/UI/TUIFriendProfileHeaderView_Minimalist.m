@@ -143,7 +143,7 @@
         make.top.mas_equalTo(kScale390(42));
     }];
     
-    MASAttachKeys(self.headImg);
+//    MASAttachKeys(self.headImg);
 
     if ([TUIConfig defaultConfig].avatarType == TAvatarTypeRounded) {
         self.headImg.layer.masksToBounds = YES;
@@ -161,7 +161,7 @@
         make.width.mas_equalTo(self.descriptionLabel.frame.size.width);
         make.width.mas_lessThanOrEqualTo(self).multipliedBy(0.5);
     }];
-    MASAttachKeys(self.descriptionLabel);
+    MASAttachKeys(self.headImg, self.descriptionLabel);
 
     if (self.functionListView.subviews.count > 0) {
         [self.functionListView mas_remakeConstraints:^(MASConstraintMaker *make) {

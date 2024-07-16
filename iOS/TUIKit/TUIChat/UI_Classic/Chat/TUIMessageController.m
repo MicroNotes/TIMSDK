@@ -32,7 +32,7 @@
 #pragma mark - Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.bottomIndicatorView =
         [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, TMessageController_Header_Height)];
     self.bottomIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;

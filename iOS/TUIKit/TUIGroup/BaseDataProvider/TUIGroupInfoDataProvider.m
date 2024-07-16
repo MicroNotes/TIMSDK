@@ -252,37 +252,40 @@
             [groupInfoArray addObject:manageData];
         }
 
+        //群类型
         TUICommonTextCellData *typeData = [[TUICommonTextCellData alloc] init];
         typeData.key = TIMCommonLocalizableString(TUIKitGroupProfileType);
-        typeData.value = [TUIGroupInfoDataProvider getGroupTypeName:self.groupInfo];
+//        typeData.value = [TUIGroupInfoDataProvider getGroupTypeName:self.groupInfo];
+        typeData.value = @"皇包车服务群";
         [groupInfoArray addObject:typeData];
 
-        TUICommonTextCellData *addOptionData = [[TUICommonTextCellData alloc] init];
-        addOptionData.key = TIMCommonLocalizableString(TUIKitGroupProfileJoinType);
+        //主动加群方式
+//        TUICommonTextCellData *addOptionData = [[TUICommonTextCellData alloc] init];
+//        addOptionData.key = TIMCommonLocalizableString(TUIKitGroupProfileJoinType);
+//        if ([self.groupInfo.groupType isEqualToString:@"Work"]) {
+//            addOptionData.value = TIMCommonLocalizableString(TUIKitGroupProfileInviteJoin);
+//        } else if ([self.groupInfo.groupType isEqualToString:@"Meeting"]) {
+//            addOptionData.value = TIMCommonLocalizableString(TUIKitGroupProfileAutoApproval);
+//        } else {
+//            if ([TUIGroupInfoDataProvider isMeOwner:self.groupInfo]) {
+//                addOptionData.cselector = @selector(didSelectAddOption:);
+//                addOptionData.showAccessory = YES;
+//            }
+//            addOptionData.value = [TUIGroupInfoDataProvider getAddOption:self.groupInfo];
+//        }
+//        [groupInfoArray addObject:addOptionData];
+//        self.addOptionData = addOptionData;
 
-        if ([self.groupInfo.groupType isEqualToString:@"Work"]) {
-            addOptionData.value = TIMCommonLocalizableString(TUIKitGroupProfileInviteJoin);
-        } else if ([self.groupInfo.groupType isEqualToString:@"Meeting"]) {
-            addOptionData.value = TIMCommonLocalizableString(TUIKitGroupProfileAutoApproval);
-        } else {
-            if ([TUIGroupInfoDataProvider isMeOwner:self.groupInfo]) {
-                addOptionData.cselector = @selector(didSelectAddOption:);
-                addOptionData.showAccessory = YES;
-            }
-            addOptionData.value = [TUIGroupInfoDataProvider getAddOption:self.groupInfo];
-        }
-        [groupInfoArray addObject:addOptionData];
-        self.addOptionData = addOptionData;
-
-        TUICommonTextCellData *inviteOptionData = [[TUICommonTextCellData alloc] init];
-        inviteOptionData.key = TIMCommonLocalizableString(TUIKitGroupProfileInviteType);
-        if ([TUIGroupInfoDataProvider isMeOwner:self.groupInfo]) {
-            inviteOptionData.cselector = @selector(didSelectAddOption:);
-            inviteOptionData.showAccessory = YES;
-        }
-        inviteOptionData.value = [TUIGroupInfoDataProvider getApproveOption:self.groupInfo];
-        [groupInfoArray addObject:inviteOptionData];
-        self.inviteOptionData = inviteOptionData;
+        //邀请进群方式
+//        TUICommonTextCellData *inviteOptionData = [[TUICommonTextCellData alloc] init];
+//        inviteOptionData.key = TIMCommonLocalizableString(TUIKitGroupProfileInviteType);
+//        if ([TUIGroupInfoDataProvider isMeOwner:self.groupInfo]) {
+//            inviteOptionData.cselector = @selector(didSelectAddOption:);
+//            inviteOptionData.showAccessory = YES;
+//        }
+//        inviteOptionData.value = [TUIGroupInfoDataProvider getApproveOption:self.groupInfo];
+//        [groupInfoArray addObject:inviteOptionData];
+//        self.inviteOptionData = inviteOptionData;
         [dataList addObject:groupInfoArray];
 
         // personal info
@@ -323,51 +326,57 @@
 
         [dataList addObject:personalArray];
 
-        TUICommonTextCellData *changeBackgroundImageItem = [[TUICommonTextCellData alloc] init];
-        changeBackgroundImageItem.key = TIMCommonLocalizableString(ProfileSetBackgroundImage);
-        changeBackgroundImageItem.cselector = @selector(didSelectOnChangeBackgroundImage:);
-        changeBackgroundImageItem.showAccessory = YES;
-        [dataList addObject:@[ changeBackgroundImageItem ]];
+        //设置当前聊天背景
+//        TUICommonTextCellData *changeBackgroundImageItem = [[TUICommonTextCellData alloc] init];
+//        changeBackgroundImageItem.key = TIMCommonLocalizableString(ProfileSetBackgroundImage);
+//        changeBackgroundImageItem.cselector = @selector(didSelectOnChangeBackgroundImage:);
+//        changeBackgroundImageItem.showAccessory = YES;
+//        [dataList addObject:@[ changeBackgroundImageItem ]];
 
-        NSMutableArray *buttonArray = [NSMutableArray array];
-        TUIButtonCellData *clearHistory = [[TUIButtonCellData alloc] init];
-        clearHistory.title = TIMCommonLocalizableString(TUIKitClearAllChatHistory);
-        clearHistory.style = ButtonRedText;
-        clearHistory.cbuttonSelector = @selector(didClearAllHistory:);
-        [buttonArray addObject:clearHistory];
+        //清空聊天记录
+//        NSMutableArray *buttonArray = [NSMutableArray array];
+//        TUIButtonCellData *clearHistory = [[TUIButtonCellData alloc] init];
+//        clearHistory.title = TIMCommonLocalizableString(TUIKitClearAllChatHistory);
+//        clearHistory.style = ButtonRedText;
+//        clearHistory.cbuttonSelector = @selector(didClearAllHistory:);
+//        [buttonArray addObject:clearHistory];
 
-        TUIButtonCellData *quitButton = [[TUIButtonCellData alloc] init];
-        quitButton.title = TIMCommonLocalizableString(TUIKitGroupProfileDeleteAndExit);
-        quitButton.style = ButtonRedText;
-        quitButton.cbuttonSelector = @selector(didDeleteGroup:);
-        [buttonArray addObject:quitButton];
+        //删除并退出
+//        TUIButtonCellData *quitButton = [[TUIButtonCellData alloc] init];
+//        quitButton.title = TIMCommonLocalizableString(TUIKitGroupProfileDeleteAndExit);
+//        quitButton.style = ButtonRedText;
+//        quitButton.cbuttonSelector = @selector(didDeleteGroup:);
+//        [buttonArray addObject:quitButton];
 
-        if ([self.class isMeSuper:self.groupInfo]) {
-            TUIButtonCellData *transferButton = [[TUIButtonCellData alloc] init];
-            transferButton.title = TIMCommonLocalizableString(TUIKitGroupTransferOwner);
-            transferButton.style = ButtonRedText;
-            transferButton.cbuttonSelector = @selector(didTransferGroup:);
-            [buttonArray addObject:transferButton];
-        }
+        //转让群主
+//        if ([self.class isMeSuper:self.groupInfo]) {
+//            TUIButtonCellData *transferButton = [[TUIButtonCellData alloc] init];
+//            transferButton.title = TIMCommonLocalizableString(TUIKitGroupTransferOwner);
+//            transferButton.style = ButtonRedText;
+//            transferButton.cbuttonSelector = @selector(didTransferGroup:);
+//            [buttonArray addObject:transferButton];
+//        }
 
-        if ([self.groupInfo canDismissGroup]) {
-            TUIButtonCellData *deletebutton = [[TUIButtonCellData alloc] init];
-            deletebutton.title = TIMCommonLocalizableString(TUIKitGroupProfileDissolve);
-            deletebutton.style = ButtonRedText;
-            deletebutton.cbuttonSelector = @selector(didDeleteGroup:);
-            [buttonArray addObject:deletebutton];
-        }
+        //解散该群
+//        if ([self.groupInfo canDismissGroup]) {
+//            TUIButtonCellData *deletebutton = [[TUIButtonCellData alloc] init];
+//            deletebutton.title = TIMCommonLocalizableString(TUIKitGroupProfileDissolve);
+//            deletebutton.style = ButtonRedText;
+//            deletebutton.cbuttonSelector = @selector(didDeleteGroup:);
+//            [buttonArray addObject:deletebutton];
+//        }
         
-        TUIButtonCellData *reportButton = [[TUIButtonCellData alloc] init];
-        reportButton.title = TIMCommonLocalizableString(TUIKitGroupProfileReport);
-        reportButton.style = ButtonRedText;
-        reportButton.cbuttonSelector = @selector(didReportGroup:);
-        [buttonArray addObject:reportButton];
+        //举报
+//        TUIButtonCellData *reportButton = [[TUIButtonCellData alloc] init];
+//        reportButton.title = TIMCommonLocalizableString(TUIKitGroupProfileReport);
+//        reportButton.style = ButtonRedText;
+//        reportButton.cbuttonSelector = @selector(didReportGroup:);
+//        [buttonArray addObject:reportButton];
 
 
-        TUIButtonCellData *lastCellData = [buttonArray lastObject];
-        lastCellData.hideSeparatorLine = YES;
-        [dataList addObject:buttonArray];
+//        TUIButtonCellData *lastCellData = [buttonArray lastObject];
+//        lastCellData.hideSeparatorLine = YES;
+//        [dataList addObject:buttonArray];
 
 #ifndef SDKPlaceTop
 #define SDKPlaceTop

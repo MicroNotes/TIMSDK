@@ -45,6 +45,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController.navigationBar.topItem setTitle:@""];
     // Do any additional setup after loading the view.
     [self setupTipsView];
     [self setupGroupPinTips];
