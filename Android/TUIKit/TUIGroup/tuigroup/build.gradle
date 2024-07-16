@@ -40,7 +40,7 @@ apply from: '../../../../../../Android/config/upload.gradle'
 ext {
     groupid = "com.cclx.tencent.qcloud"
     name = "tuigroup"
-    version = "1.0.0-SNAPSHOT"
+    version = "1.0.0"
 }
 
 dependencies {
@@ -50,5 +50,5 @@ dependencies {
     annotationProcessor 'com.google.auto.service:auto-service:1.1.1'
 
 //    api project(':timcommon')
-    api 'com.cclx.tencent.qcloud:timcommon:1.0.0-SNAPSHOT'
+    api 'com.cclx.tencent.qcloud:timcommon:1.0.0'
 }

@@ -37,7 +37,7 @@ apply from: '../../../../../../Android/config/upload.gradle'
 ext {
     groupid = "com.cclx.tencent.qcloud"
     name = "tuicore"
-    version = "1.0.0-SNAPSHOT"
+    version = "1.0.0"
 }
 
 dependencies {
