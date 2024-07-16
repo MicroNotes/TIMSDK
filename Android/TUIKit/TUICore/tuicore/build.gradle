@@ -2,14 +2,12 @@ plugins {
     id 'com.android.library'
 }
 
-
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdk 34
     namespace "com.tencent.qcloud.tuicore"
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 30
+        minSdk 19
+        targetSdk 34
         versionCode 1
         versionName "1.0"
     }
@@ -33,6 +31,13 @@ android {
             res.srcDirs += "src/main/res-serious"
         }
     }
+}
+
+apply from: '../../../../../../Android/config/upload.gradle'
+ext {
+    groupid = "com.cclx.tencent.qcloud"
+    name = "tuicore"
+    version = "1.0.0-SNAPSHOT"
 }
 
 dependencies {
