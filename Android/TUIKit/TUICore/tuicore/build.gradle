@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.library'
 }
-
 android {
     compileSdk 34
     namespace "com.tencent.qcloud.tuicore"
