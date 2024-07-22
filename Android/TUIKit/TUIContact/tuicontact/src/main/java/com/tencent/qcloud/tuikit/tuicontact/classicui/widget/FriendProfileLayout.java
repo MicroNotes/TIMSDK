@@ -52,29 +52,29 @@ public class FriendProfileLayout extends LinearLayout implements View.OnClickLis
     private TextView mIDView;
     private TextView mSignatureView;
     private TextView mSignatureTagView;
-    private TextView remarkAndGroupTip;
-    private LineControllerView mRemarkView;
-    private LineControllerView mAddBlackView;
+//    private TextView remarkAndGroupTip;
+//    private LineControllerView mRemarkView;
+//    private LineControllerView mAddBlackView;
     private LineControllerView mChatTopView;
     private LineControllerView mMessageOptionView;
-    private LineControllerView addFriendRemarkLv;
-    private LineControllerView addFriendGroupLv;
-    private LineControllerView mChatBackground;
-    private TextView deleteFriendBtn;
-    private TextView clearMessageBtn;
+//    private LineControllerView addFriendRemarkLv;
+//    private LineControllerView addFriendGroupLv;
+//    private LineControllerView mChatBackground;
+//    private TextView deleteFriendBtn;
+//    private TextView clearMessageBtn;
 
-    private TextView agreeBtn;
+//    private TextView agreeBtn;
 
-    private ViewGroup extensionListView;
-    private ViewGroup warningExtensionListView;
+//    private ViewGroup extensionListView;
+//    private ViewGroup warningExtensionListView;
 
-    private TextView addFriendSendBtn;
-    private TextView acceptFriendBtn;
-    private TextView refuseFriendBtn;
-    private View addFriendArea;
-    private EditText addWordingEditText;
-    private View friendApplicationVerifyArea;
-    private TextView friendApplicationAddWording;
+//    private TextView addFriendSendBtn;
+//    private TextView acceptFriendBtn;
+//    private TextView refuseFriendBtn;
+//    private View addFriendArea;
+//    private EditText addWordingEditText;
+//    private View friendApplicationVerifyArea;
+//    private TextView friendApplicationAddWording;
 
     private ContactItemBean mContactInfo;
     private FriendApplicationBean friendApplicationBean;
@@ -111,44 +111,44 @@ public class FriendProfileLayout extends LinearLayout implements View.OnClickLis
         mHeadImageView = findViewById(R.id.friend_icon);
         mNickNameView = findViewById(R.id.friend_nick_name);
         mIDView = findViewById(R.id.friend_account);
-        mRemarkView = findViewById(R.id.remark);
-        mRemarkView.setOnClickListener(this);
+//        mRemarkView = findViewById(R.id.remark);
+//        mRemarkView.setOnClickListener(this);
         mSignatureTagView = findViewById(R.id.friend_signature_tag);
         mSignatureView = findViewById(R.id.friend_signature);
         mMessageOptionView = findViewById(R.id.msg_rev_opt);
         mMessageOptionView.setOnClickListener(this);
         mChatTopView = findViewById(R.id.chat_to_top);
-        mAddBlackView = findViewById(R.id.blackList);
-        deleteFriendBtn = findViewById(R.id.btn_delete);
-        deleteFriendBtn.setOnClickListener(this);
-        clearMessageBtn = findViewById(R.id.btn_clear_chat_history);
-        clearMessageBtn.setOnClickListener(this);
-        mChatBackground = findViewById(R.id.chat_background);
-        mChatBackground.setOnClickListener(this);
+//        mAddBlackView = findViewById(R.id.blackList);
+//        deleteFriendBtn = findViewById(R.id.btn_delete);
+//        deleteFriendBtn.setOnClickListener(this);
+//        clearMessageBtn = findViewById(R.id.btn_clear_chat_history);
+//        clearMessageBtn.setOnClickListener(this);
+//        mChatBackground = findViewById(R.id.chat_background);
+//        mChatBackground.setOnClickListener(this);
 
-        addFriendSendBtn = findViewById(R.id.add_friend_send_btn);
-        addFriendSendBtn.setOnClickListener(this);
+//        addFriendSendBtn = findViewById(R.id.add_friend_send_btn);
+//        addFriendSendBtn.setOnClickListener(this);
 
-        acceptFriendBtn = findViewById(R.id.accept_friend_send_btn);
-        refuseFriendBtn = findViewById(R.id.refuse_friend_send_btn);
+//        acceptFriendBtn = findViewById(R.id.accept_friend_send_btn);
+//        refuseFriendBtn = findViewById(R.id.refuse_friend_send_btn);
 
-        agreeBtn = findViewById(R.id.agree_button);
+//        agreeBtn = findViewById(R.id.agree_button);
 
-        extensionListView = findViewById(R.id.extension_list);
-        warningExtensionListView = findViewById(R.id.warning_extension_list);
+//        extensionListView = findViewById(R.id.extension_list);
+//        warningExtensionListView = findViewById(R.id.warning_extension_list);
 
-        addFriendArea = findViewById(R.id.add_friend_verify_area);
-        addWordingEditText = findViewById(R.id.add_wording_edit);
+//        addFriendArea = findViewById(R.id.add_friend_verify_area);
+//        addWordingEditText = findViewById(R.id.add_wording_edit);
 
-        friendApplicationVerifyArea = findViewById(R.id.friend_application_verify_area);
-        friendApplicationAddWording = findViewById(R.id.friend_application_add_wording);
+//        friendApplicationVerifyArea = findViewById(R.id.friend_application_verify_area);
+//        friendApplicationAddWording = findViewById(R.id.friend_application_add_wording);
 
-        addFriendRemarkLv = findViewById(R.id.friend_remark_lv);
-        addFriendRemarkLv.setOnClickListener(this);
-        addFriendGroupLv = findViewById(R.id.friend_group_lv);
-        addFriendGroupLv.setContent(getContext().getString(R.string.contact_my_friend));
+//        addFriendRemarkLv = findViewById(R.id.friend_remark_lv);
+//        addFriendRemarkLv.setOnClickListener(this);
+//        addFriendGroupLv = findViewById(R.id.friend_group_lv);
+//        addFriendGroupLv.setContent(getContext().getString(R.string.contact_my_friend));
 
-        remarkAndGroupTip = findViewById(R.id.remark_and_group_tip);
+//        remarkAndGroupTip = findViewById(R.id.remark_and_group_tip);
 
         mTitleBar = findViewById(R.id.friend_titlebar);
         mTitleBar.setTitle(getResources().getString(R.string.profile_detail), ITitleBarLayout.Position.MIDDLE);
@@ -166,7 +166,7 @@ public class FriendProfileLayout extends LinearLayout implements View.OnClickLis
         param.put(TUIConstants.TUIContact.Extension.FriendProfileItem.USER_ID, mId);
         List<TUIExtensionInfo> extensionInfoList = TUICore.getExtensionList(TUIConstants.TUIContact.Extension.FriendProfileItem.CLASSIC_EXTENSION_ID, param);
         Collections.sort(extensionInfoList);
-        extensionListView.removeAllViews();
+//        extensionListView.removeAllViews();
         for (TUIExtensionInfo extensionInfo : extensionInfoList) {
             View itemView = LayoutInflater.from(getContext()).inflate(R.layout.contact_friend_profile_item_layout, null);
             TextView itemButton = itemView.findViewById(R.id.item_button);
@@ -179,12 +179,12 @@ public class FriendProfileLayout extends LinearLayout implements View.OnClickLis
                     }
                 }
             });
-            extensionListView.addView(itemView);
+//            extensionListView.addView(itemView);
         }
 
         List<TUIExtensionInfo> warningExtensionList = TUICore.getExtensionList(TUIConstants.TUIContact.Extension.FriendProfileWarningButton.EXTENSION_ID, null);
         Collections.sort(warningExtensionList);
-        warningExtensionListView.removeAllViews();
+//        warningExtensionListView.removeAllViews();
         for (TUIExtensionInfo extensionInfo : warningExtensionList) {
             View itemView = LayoutInflater.from(getContext()).inflate(R.layout.contact_friend_profile_warning_item_layout, null);
             TextView itemButton = itemView.findViewById(R.id.item_button);
@@ -197,7 +197,7 @@ public class FriendProfileLayout extends LinearLayout implements View.OnClickLis
                     }
                 }
             });
-            warningExtensionListView.addView(itemView);
+//            warningExtensionListView.addView(itemView);
         }
     }
 
@@ -211,30 +211,30 @@ public class FriendProfileLayout extends LinearLayout implements View.OnClickLis
             }
         });
 
-        mAddBlackView.setCheckListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    addBlack();
-                } else {
-                    deleteBlack();
-                }
-            }
-        });
+//        mAddBlackView.setCheckListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if (isChecked) {
+//                    addBlack();
+//                } else {
+//                    deleteBlack();
+//                }
+//            }
+//        });
 
-        refuseFriendBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                refuse();
-            }
-        });
-
-        acceptFriendBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                accept();
-            }
-        });
+//        refuseFriendBtn.setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                refuse();
+//            }
+//        });
+//
+//        acceptFriendBtn.setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                accept();
+//            }
+//        });
     }
 
     public void initData(Object data) {
@@ -267,25 +267,25 @@ public class FriendProfileLayout extends LinearLayout implements View.OnClickLis
         final ContactGroupApplyInfo info = data;
         mId = info.getFromUser();
         mNickname = info.getFromUserNickName();
-        mRemarkView.setVisibility(GONE);
-        mAddBlackView.setVisibility(GONE);
+//        mRemarkView.setVisibility(GONE);
+//        mAddBlackView.setVisibility(GONE);
         mMessageOptionView.setVisibility(GONE);
-        mChatBackground.setVisibility(GONE);
-        deleteFriendBtn.setText(R.string.refuse);
-        deleteFriendBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                refuseJoinGroupApply(info);
-            }
-        });
-        agreeBtn.setVisibility(VISIBLE);
-        agreeBtn.setText(R.string.accept);
-        agreeBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                acceptJoinGroupApply(info);
-            }
-        });
+//        mChatBackground.setVisibility(GONE);
+//        deleteFriendBtn.setText(R.string.refuse);
+//        deleteFriendBtn.setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                refuseJoinGroupApply(info);
+//            }
+//        });
+//        agreeBtn.setVisibility(VISIBLE);
+//        agreeBtn.setText(R.string.accept);
+//        agreeBtn.setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                acceptJoinGroupApply(info);
+//            }
+//        });
     }
 
     private void setViewContentFromGroupInfo(GroupInfo groupInfo) {
@@ -298,11 +298,11 @@ public class FriendProfileLayout extends LinearLayout implements View.OnClickLis
         int radius = getResources().getDimensionPixelSize(R.dimen.contact_profile_face_radius);
         GlideEngine.loadUserIcon(
             mHeadImageView, groupInfo.getFaceUrl(), TUIUtil.getDefaultGroupIconResIDByGroupType(getContext(), groupInfo.getGroupType()), radius);
-        addFriendSendBtn.setVisibility(VISIBLE);
-        addFriendArea.setVisibility(VISIBLE);
-        remarkAndGroupTip.setVisibility(GONE);
-        addFriendRemarkLv.setVisibility(GONE);
-        addFriendGroupLv.setVisibility(GONE);
+//        addFriendSendBtn.setVisibility(VISIBLE);
+//        addFriendArea.setVisibility(VISIBLE);
+//        remarkAndGroupTip.setVisibility(GONE);
+//        addFriendRemarkLv.setVisibility(GONE);
+//        addFriendGroupLv.setVisibility(GONE);
     }
 
     private void setViewContentFromFriendApplicationBean(FriendApplicationBean data) {
@@ -311,15 +311,15 @@ public class FriendProfileLayout extends LinearLayout implements View.OnClickLis
         mNickname = friendApplicationBean.getNickName();
         mSignatureTagView.setVisibility(GONE);
         mSignatureView.setVisibility(GONE);
-        mRemarkView.setVisibility(GONE);
-        mAddBlackView.setVisibility(GONE);
+//        mRemarkView.setVisibility(GONE);
+//        mAddBlackView.setVisibility(GONE);
         mMessageOptionView.setVisibility(GONE);
-        mChatBackground.setVisibility(GONE);
-        friendApplicationVerifyArea.setVisibility(VISIBLE);
-        friendApplicationAddWording.setText(friendApplicationBean.getAddWording());
+//        mChatBackground.setVisibility(GONE);
+//        friendApplicationVerifyArea.setVisibility(VISIBLE);
+//        friendApplicationAddWording.setText(friendApplicationBean.getAddWording());
 
-        refuseFriendBtn.setVisibility(VISIBLE);
-        acceptFriendBtn.setVisibility(VISIBLE);
+//        refuseFriendBtn.setVisibility(VISIBLE);
+//        acceptFriendBtn.setVisibility(VISIBLE);
 
         int radius = getResources().getDimensionPixelSize(R.dimen.contact_profile_face_radius);
         GlideEngine.loadUserIcon(mHeadImageView, friendApplicationBean.getFaceUrl(), radius);
@@ -339,50 +339,50 @@ public class FriendProfileLayout extends LinearLayout implements View.OnClickLis
         int radius = getResources().getDimensionPixelSize(R.dimen.contact_profile_face_radius);
         GlideEngine.loadUserIcon(mHeadImageView, mContactInfo.getAvatarUrl(), radius);
         mChatTopView.setChecked(presenter.isTopConversation(mId));
-        mAddBlackView.setChecked(mContactInfo.isBlackList());
-        mRemarkView.setContent(mContactInfo.getRemark());
+//        mAddBlackView.setChecked(mContactInfo.isBlackList());
+//        mRemarkView.setContent(mContactInfo.getRemark());
 
-        if (isFriend || mContactInfo.isBlackList()) {
-            clearMessageBtn.setVisibility(VISIBLE);
-        }
+//        if (isFriend || mContactInfo.isBlackList()) {
+//            clearMessageBtn.setVisibility(VISIBLE);
+//        }
 
         if (TextUtils.equals(mContactInfo.getId(), TUILogin.getLoginUser())) {
             if (isFriend) {
-                mRemarkView.setVisibility(VISIBLE);
-                extensionListView.setVisibility(VISIBLE);
-                deleteFriendBtn.setVisibility(VISIBLE);
-                mAddBlackView.setVisibility(VISIBLE);
+//                mRemarkView.setVisibility(VISIBLE);
+//                extensionListView.setVisibility(VISIBLE);
+//                deleteFriendBtn.setVisibility(VISIBLE);
+//                mAddBlackView.setVisibility(VISIBLE);
                 mChatTopView.setVisibility(View.VISIBLE);
-                mChatBackground.setVisibility(VISIBLE);
+//                mChatBackground.setVisibility(VISIBLE);
                 updateMessageOptionView();
             } else {
                 // DO NOTHING
             }
         } else {
             if (mContactInfo.isBlackList()) {
-                deleteFriendBtn.setVisibility(GONE);
-                extensionListView.setVisibility(VISIBLE);
-                mRemarkView.setVisibility(VISIBLE);
-                mAddBlackView.setVisibility(VISIBLE);
+//                deleteFriendBtn.setVisibility(GONE);
+//                extensionListView.setVisibility(VISIBLE);
+//                mRemarkView.setVisibility(VISIBLE);
+//                mAddBlackView.setVisibility(VISIBLE);
                 mMessageOptionView.setVisibility(VISIBLE);
                 mChatTopView.setVisibility(VISIBLE);
-                mChatBackground.setVisibility(VISIBLE);
+//                mChatBackground.setVisibility(VISIBLE);
             } else {
                 if (!isFriend) {
-                    if (isGroup) {
-                        addFriendRemarkLv.setVisibility(GONE);
-                        addFriendGroupLv.setVisibility(GONE);
-                    }
+//                    if (isGroup) {
+//                        addFriendRemarkLv.setVisibility(GONE);
+//                        addFriendGroupLv.setVisibility(GONE);
+//                    }
                     mTitleBar.setTitle(getResources().getString(R.string.add_friend), ITitleBarLayout.Position.MIDDLE);
-                    addFriendSendBtn.setVisibility(VISIBLE);
-                    addFriendArea.setVisibility(VISIBLE);
+//                    addFriendSendBtn.setVisibility(VISIBLE);
+//                    addFriendArea.setVisibility(VISIBLE);
                 } else {
-                    mRemarkView.setVisibility(VISIBLE);
-                    extensionListView.setVisibility(VISIBLE);
-                    deleteFriendBtn.setVisibility(VISIBLE);
-                    mAddBlackView.setVisibility(VISIBLE);
+//                    mRemarkView.setVisibility(VISIBLE);
+//                    extensionListView.setVisibility(VISIBLE);
+//                    deleteFriendBtn.setVisibility(VISIBLE);
+//                    mAddBlackView.setVisibility(VISIBLE);
                     mChatTopView.setVisibility(View.VISIBLE);
-                    mChatBackground.setVisibility(VISIBLE);
+//                    mChatBackground.setVisibility(VISIBLE);
                     updateMessageOptionView();
                 }
             }
@@ -422,7 +422,7 @@ public class FriendProfileLayout extends LinearLayout implements View.OnClickLis
         setupExtension();
         if (bean.isFriend()) {
             updateMessageOptionView();
-            clearMessageBtn.setVisibility(VISIBLE);
+//            clearMessageBtn.setVisibility(VISIBLE);
         }
 
         if (!TextUtils.isEmpty(mNickname)) {
@@ -447,9 +447,9 @@ public class FriendProfileLayout extends LinearLayout implements View.OnClickLis
         presenter.acceptFriendApplication(friendApplicationBean, FriendApplicationBean.FRIEND_ACCEPT_AGREE_AND_ADD, new IUIKitCallback<Void>() {
             @Override
             public void onSuccess(Void data) {
-                agreeBtn.setVisibility(VISIBLE);
-                agreeBtn.setText(R.string.accepted);
-                ((Activity) getContext()).finish();
+//                agreeBtn.setVisibility(VISIBLE);
+//                agreeBtn.setText(R.string.accepted);
+//                ((Activity) getContext()).finish();
             }
 
             @Override
@@ -463,8 +463,8 @@ public class FriendProfileLayout extends LinearLayout implements View.OnClickLis
         presenter.refuseFriendApplication(friendApplicationBean, new IUIKitCallback<Void>() {
             @Override
             public void onSuccess(Void data) {
-                deleteFriendBtn.setText(R.string.refused);
-                ((Activity) getContext()).finish();
+//                deleteFriendBtn.setText(R.string.refused);
+//                ((Activity) getContext()).finish();
             }
 
             @Override
@@ -523,92 +523,96 @@ public class FriendProfileLayout extends LinearLayout implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        if (v == deleteFriendBtn) {
-            delete();
-        } else if (v == clearMessageBtn) {
-            new TUIKitDialog(getContext())
-                .builder()
-                .setCancelable(true)
-                .setCancelOutside(true)
-                .setTitle(getContext().getString(R.string.clear_msg_tip))
-                .setDialogWidth(0.75f)
-                .setPositiveButton(getContext().getString(com.tencent.qcloud.tuicore.R.string.sure),
-                    new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Map<String, Object> hashMap = new HashMap<>();
-                            hashMap.put(TUIConstants.TUIContact.FRIEND_ID, mId);
-                            TUICore.notifyEvent(TUIConstants.TUIContact.EVENT_USER, TUIConstants.TUIContact.EVENT_SUB_KEY_CLEAR_MESSAGE, hashMap);
-                        }
-                    })
-                .setNegativeButton(getContext().getString(com.tencent.qcloud.tuicore.R.string.cancel),
-                    new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {}
-                    })
-                .show();
-        } else if (v == addFriendSendBtn) {
-            String addWording = addWordingEditText.getText().toString();
-            String friendGroup = "";
-            String remark = addFriendRemarkLv.getContent();
-
-            if (isGroup) {
-                presenter.joinGroup(mId, addWording, new IUIKitCallback<Void>() {
-                    @Override
-                    public void onSuccess(Void data) {
-                        ToastUtil.toastShortMessage(getContext().getString(R.string.success));
-                    }
-
-                    @Override
-                    public void onError(String module, int errCode, String errMsg) {
-                        ToastUtil.toastShortMessage(getContext().getString(R.string.contact_add_failed) + " " + errMsg);
-                    }
-                });
-            } else {
-                presenter.addFriend(mId, addWording, friendGroup, remark, new IUIKitCallback<Pair<Integer, String>>() {
-                    @Override
-                    public void onSuccess(Pair<Integer, String> data) {
-                        ToastUtil.toastShortMessage(data.second);
-                    }
-
-                    @Override
-                    public void onError(String module, int errCode, String errMsg) {
-                        ToastUtil.toastShortMessage(getContext().getString(R.string.contact_add_failed));
-                    }
-                });
-            }
-        } else if (v == addFriendRemarkLv) {
-            PopupInputCard popupInputCard = new PopupInputCard((Activity) getContext());
-            popupInputCard.setContent(addFriendRemarkLv.getContent());
-            popupInputCard.setTitle(getResources().getString(R.string.contact_friend_remark));
-            popupInputCard.setOnPositive((result -> {
-                addFriendRemarkLv.setContent(result);
-                if (TextUtils.isEmpty(result)) {
-                    result = "";
-                }
-                modifyRemark(result);
-            }));
-            popupInputCard.show(addFriendRemarkLv, Gravity.BOTTOM);
-        } else if (v == mRemarkView) {
-            PopupInputCard popupInputCard = new PopupInputCard((Activity) getContext());
-            popupInputCard.setContent(mRemarkView.getContent());
-            popupInputCard.setTitle(getResources().getString(R.string.profile_remark_edit));
-            String description = getResources().getString(R.string.contact_modify_remark_rule);
-            popupInputCard.setDescription(description);
-            popupInputCard.setOnPositive((result -> {
-                mRemarkView.setContent(result);
-                if (TextUtils.isEmpty(result)) {
-                    result = "";
-                }
-                modifyRemark(result);
-            }));
-            popupInputCard.show(mRemarkView, Gravity.BOTTOM);
-
-        } else if (v == mChatBackground) {
-            if (mListener != null) {
-                mListener.onSetChatBackground();
-            }
-        }
+//        if (v == deleteFriendBtn) {
+//            delete();
+//        } else if (v == clearMessageBtn) {
+//            new TUIKitDialog(getContext())
+//                .builder()
+//                .setCancelable(true)
+//                .setCancelOutside(true)
+//                .setTitle(getContext().getString(R.string.clear_msg_tip))
+//                .setDialogWidth(0.75f)
+//                .setPositiveButton(getContext().getString(com.tencent.qcloud.tuicore.R.string.sure),
+//                    new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            Map<String, Object> hashMap = new HashMap<>();
+//                            hashMap.put(TUIConstants.TUIContact.FRIEND_ID, mId);
+//                            TUICore.notifyEvent(TUIConstants.TUIContact.EVENT_USER, TUIConstants.TUIContact.EVENT_SUB_KEY_CLEAR_MESSAGE, hashMap);
+//                        }
+//                    })
+//                .setNegativeButton(getContext().getString(com.tencent.qcloud.tuicore.R.string.cancel),
+//                    new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {}
+//                    })
+//                .show();
+//        }
+//        else if (v == addFriendSendBtn) {
+//            String addWording = addWordingEditText.getText().toString();
+//            String friendGroup = "";
+//            String remark = addFriendRemarkLv.getContent();
+//
+//            if (isGroup) {
+//                presenter.joinGroup(mId, addWording, new IUIKitCallback<Void>() {
+//                    @Override
+//                    public void onSuccess(Void data) {
+//                        ToastUtil.toastShortMessage(getContext().getString(R.string.success));
+//                    }
+//
+//                    @Override
+//                    public void onError(String module, int errCode, String errMsg) {
+//                        ToastUtil.toastShortMessage(getContext().getString(R.string.contact_add_failed) + " " + errMsg);
+//                    }
+//                });
+//            }
+//            else {
+//                presenter.addFriend(mId, addWording, friendGroup, remark, new IUIKitCallback<Pair<Integer, String>>() {
+//                    @Override
+//                    public void onSuccess(Pair<Integer, String> data) {
+//                        ToastUtil.toastShortMessage(data.second);
+//                    }
+//
+//                    @Override
+//                    public void onError(String module, int errCode, String errMsg) {
+//                        ToastUtil.toastShortMessage(getContext().getString(R.string.contact_add_failed));
+//                    }
+//                });
+//            }
+//        }
+//        else if (v == addFriendRemarkLv) {
+//            PopupInputCard popupInputCard = new PopupInputCard((Activity) getContext());
+//            popupInputCard.setContent(addFriendRemarkLv.getContent());
+//            popupInputCard.setTitle(getResources().getString(R.string.contact_friend_remark));
+//            popupInputCard.setOnPositive((result -> {
+//                addFriendRemarkLv.setContent(result);
+//                if (TextUtils.isEmpty(result)) {
+//                    result = "";
+//                }
+//                modifyRemark(result);
+//            }));
+//            popupInputCard.show(addFriendRemarkLv, Gravity.BOTTOM);
+//        } else if (v == mRemarkView) {
+//            PopupInputCard popupInputCard = new PopupInputCard((Activity) getContext());
+//            popupInputCard.setContent(mRemarkView.getContent());
+//            popupInputCard.setTitle(getResources().getString(R.string.profile_remark_edit));
+//            String description = getResources().getString(R.string.contact_modify_remark_rule);
+//            popupInputCard.setDescription(description);
+//            popupInputCard.setOnPositive((result -> {
+//                mRemarkView.setContent(result);
+//                if (TextUtils.isEmpty(result)) {
+//                    result = "";
+//                }
+//                modifyRemark(result);
+//            }));
+//            popupInputCard.show(mRemarkView, Gravity.BOTTOM);
+//
+//        }
+//        else if (v == mChatBackground) {
+//            if (mListener != null) {
+//                mListener.onSetChatBackground();
+//            }
+//        }
     }
 
     private void modifyRemark(final String txt) {

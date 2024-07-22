@@ -102,89 +102,89 @@
 
             </RelativeLayout>
 
-            <LinearLayout
-                android:id="@+id/friend_application_verify_area"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:background="@color/white"
-                android:orientation="horizontal"
-                android:visibility="gone"
-                tools:visibility="visible">
+<!--            <LinearLayout-->
+<!--                android:id="@+id/friend_application_verify_area"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingBottom="10dp"-->
+<!--                android:background="@color/white"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:visibility="gone"-->
+<!--                tools:visibility="visible">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15.36dp"
-                    android:textDirection="locale"
-                    android:text="@string/contact_add_wording" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="15.36dp"-->
+<!--                    android:textDirection="locale"-->
+<!--                    android:text="@string/contact_add_wording" />-->
 
-                <TextView
-                    android:id="@+id/friend_application_add_wording"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:text="Hello" />
+<!--                <TextView-->
+<!--                    android:id="@+id/friend_application_add_wording"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    tools:text="Hello" />-->
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
 
-            <LinearLayout
-                android:id="@+id/add_friend_verify_area"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone"
-                tools:visibility="visible">
+<!--            <LinearLayout-->
+<!--                android:id="@+id/add_friend_verify_area"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:visibility="gone"-->
+<!--                tools:visibility="visible">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15.36dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="@string/contact_set_add_wording" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="15.36dp"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:text="@string/contact_set_add_wording" />-->
 
-                <EditText
-                    android:id="@+id/add_wording_edit"
-                    android:layout_width="match_parent"
-                    android:layout_height="138dp"
-                    android:background="@color/white"
-                    android:gravity="top"
-                    android:maxLines="5" />
+<!--                <EditText-->
+<!--                    android:id="@+id/add_wording_edit"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="138dp"-->
+<!--                    android:background="@color/white"-->
+<!--                    android:gravity="top"-->
+<!--                    android:maxLines="5" />-->
 
-                <TextView
-                    android:id="@+id/remark_and_group_tip"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15.36dp"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/contact_set_remark_and_group" />
+<!--                <TextView-->
+<!--                    android:id="@+id/remark_and_group_tip"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="15.36dp"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:text="@string/contact_set_remark_and_group" />-->
 
-                <com.tencent.qcloud.tuikit.timcommon.component.LineControllerView
-                    android:id="@+id/friend_remark_lv"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/contact_profile_item_height"
-                    android:layout_marginTop="10dp"
-                    app:canNav="true"
-                    app:name="@string/contact_friend_remark" />
+<!--                <com.tencent.qcloud.tuikit.timcommon.component.LineControllerView-->
+<!--                    android:id="@+id/friend_remark_lv"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/contact_profile_item_height"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    app:canNav="true"-->
+<!--                    app:name="@string/contact_friend_remark" />-->
 
-                <com.tencent.qcloud.tuikit.timcommon.component.LineControllerView
-                    android:id="@+id/friend_group_lv"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/contact_profile_item_height"
-                    app:canNav="true"
-                    app:name="@string/contact_friend_group" />
+<!--                <com.tencent.qcloud.tuikit.timcommon.component.LineControllerView-->
+<!--                    android:id="@+id/friend_group_lv"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/contact_profile_item_height"-->
+<!--                    app:canNav="true"-->
+<!--                    app:name="@string/contact_friend_group" />-->
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
 
-            <com.tencent.qcloud.tuikit.timcommon.component.LineControllerView
-                android:id="@+id/remark"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/contact_profile_item_height"
-                android:layout_marginTop="10dp"
-                android:visibility="gone"
-                app:canNav="true"
-                app:name="@string/profile_remark"
-                tools:visibility="visible" />
+<!--            <com.tencent.qcloud.tuikit.timcommon.component.LineControllerView-->
+<!--                android:id="@+id/remark"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/contact_profile_item_height"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:visibility="gone"-->
+<!--                app:canNav="true"-->
+<!--                app:name="@string/profile_remark"-->
+<!--                tools:visibility="visible" />-->
 
             <com.tencent.qcloud.tuikit.timcommon.component.LineControllerView
                 android:id="@+id/msg_rev_opt"
@@ -204,147 +204,147 @@
                 app:isTop="true"
                 app:name="@string/chat_to_top" />
 
-            <com.tencent.qcloud.tuikit.timcommon.component.LineControllerView
-                android:id="@+id/chat_background"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/contact_profile_item_height"
-                android:visibility="gone"
-                app:canNav="true"
-                app:name="@string/profile_chat_background"
-                tools:visibility="visible" />
+<!--            <com.tencent.qcloud.tuikit.timcommon.component.LineControllerView-->
+<!--                android:id="@+id/chat_background"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/contact_profile_item_height"-->
+<!--                android:visibility="gone"-->
+<!--                app:canNav="true"-->
+<!--                app:name="@string/profile_chat_background"-->
+<!--                tools:visibility="visible" />-->
 
-            <com.tencent.qcloud.tuikit.timcommon.component.LineControllerView
-                android:id="@+id/blackList"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/contact_profile_item_height"
-                android:layout_marginTop="10dp"
-                android:visibility="gone"
-                app:isSwitch="true"
-                app:name="@string/profile_black" />
+<!--            <com.tencent.qcloud.tuikit.timcommon.component.LineControllerView-->
+<!--                android:id="@+id/blackList"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/contact_profile_item_height"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:visibility="gone"-->
+<!--                app:isSwitch="true"-->
+<!--                app:name="@string/profile_black" />-->
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical">-->
 
-                <TextView
-                    android:id="@+id/add_friend_send_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/contact_profile_btn_height"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/btn_bg_color"
-                    android:text="@string/contact_add"
-                    android:textColor="?attr/core_primary_color"
-                    android:textSize="@dimen/contact_profile_btn_text_size"
-                    android:layout_gravity="center"
-                    android:textAlignment="center"
-                    android:gravity="center"
-                    android:textAllCaps="false"
-                    android:visibility="gone"
-                    tools:visibility="visible" />
+<!--                <TextView-->
+<!--                    android:id="@+id/add_friend_send_btn"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/contact_profile_btn_height"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:background="@drawable/btn_bg_color"-->
+<!--                    android:text="@string/contact_add"-->
+<!--                    android:textColor="?attr/core_primary_color"-->
+<!--                    android:textSize="@dimen/contact_profile_btn_text_size"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:textAllCaps="false"-->
+<!--                    android:visibility="gone"-->
+<!--                    tools:visibility="visible" />-->
 
-                <TextView
-                    android:id="@+id/accept_friend_send_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/contact_profile_btn_height"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/btn_bg_color"
-                    android:text="@string/accept"
-                    android:textColor="?attr/core_primary_color"
-                    android:textSize="@dimen/contact_profile_btn_text_size"
-                    android:layout_gravity="center"
-                    android:textAlignment="center"
-                    android:gravity="center"
-                    android:textAllCaps="false"
-                    android:visibility="gone"
-                    tools:visibility="visible" />
+<!--                <TextView-->
+<!--                    android:id="@+id/accept_friend_send_btn"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/contact_profile_btn_height"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:background="@drawable/btn_bg_color"-->
+<!--                    android:text="@string/accept"-->
+<!--                    android:textColor="?attr/core_primary_color"-->
+<!--                    android:textSize="@dimen/contact_profile_btn_text_size"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:textAllCaps="false"-->
+<!--                    android:visibility="gone"-->
+<!--                    tools:visibility="visible" />-->
 
-                <LinearLayout
-                    android:id="@+id/extension_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical"
-                    android:visibility="gone">
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/extension_list"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:visibility="gone">-->
 
-                </LinearLayout>
+<!--                </LinearLayout>-->
 
-                <TextView
-                    android:id="@+id/agree_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/contact_profile_btn_height"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/btn_bg_color"
-                    android:text="@string/profile_chat"
-                    android:textColor="?attr/core_primary_color"
-                    android:textSize="@dimen/contact_profile_btn_text_size"
-                    android:layout_gravity="center"
-                    android:textAlignment="center"
-                    android:gravity="center"
-                    android:textAllCaps="false"
-                    android:visibility="gone"
-                    tools:visibility="visible"/>
+<!--                <TextView-->
+<!--                    android:id="@+id/agree_button"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/contact_profile_btn_height"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:background="@drawable/btn_bg_color"-->
+<!--                    android:text="@string/profile_chat"-->
+<!--                    android:textColor="?attr/core_primary_color"-->
+<!--                    android:textSize="@dimen/contact_profile_btn_text_size"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:textAllCaps="false"-->
+<!--                    android:visibility="gone"-->
+<!--                    tools:visibility="visible"/>-->
 
-                <TextView
-                    android:id="@+id/btn_clear_chat_history"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/contact_profile_btn_height"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/btn_bg_color"
-                    android:text="@string/profile_clear_message"
-                    android:textColor="?attr/core_error_tip_color"
-                    android:textSize="@dimen/contact_profile_btn_text_size"
-                    android:layout_gravity="center"
-                    android:textAlignment="center"
-                    android:gravity="center"
-                    android:visibility="gone"
-                    android:textAllCaps="false"
-                    tools:visibility="visible" />
+<!--                <TextView-->
+<!--                    android:id="@+id/btn_clear_chat_history"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/contact_profile_btn_height"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:background="@drawable/btn_bg_color"-->
+<!--                    android:text="@string/profile_clear_message"-->
+<!--                    android:textColor="?attr/core_error_tip_color"-->
+<!--                    android:textSize="@dimen/contact_profile_btn_text_size"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:visibility="gone"-->
+<!--                    android:textAllCaps="false"-->
+<!--                    tools:visibility="visible" />-->
 
-                <TextView
-                    android:id="@+id/btn_delete"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/contact_profile_btn_height"
-                    android:layout_marginTop="0.68dp"
-                    android:background="@drawable/btn_bg_color"
-                    android:text="@string/profile_delete_friend"
-                    android:textColor="?attr/core_error_tip_color"
-                    android:textSize="@dimen/contact_profile_btn_text_size"
-                    android:visibility="gone"
-                    android:textAllCaps="false"
-                    android:layout_gravity="center"
-                    android:textAlignment="center"
-                    android:gravity="center"
-                    tools:visibility="visible" />
+<!--                <TextView-->
+<!--                    android:id="@+id/btn_delete"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/contact_profile_btn_height"-->
+<!--                    android:layout_marginTop="0.68dp"-->
+<!--                    android:background="@drawable/btn_bg_color"-->
+<!--                    android:text="@string/profile_delete_friend"-->
+<!--                    android:textColor="?attr/core_error_tip_color"-->
+<!--                    android:textSize="@dimen/contact_profile_btn_text_size"-->
+<!--                    android:visibility="gone"-->
+<!--                    android:textAllCaps="false"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:gravity="center"-->
+<!--                    tools:visibility="visible" />-->
 
-                <TextView
-                    android:id="@+id/refuse_friend_send_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/contact_profile_btn_height"
-                    android:layout_marginTop="0.6dp"
-                    android:background="@drawable/btn_bg_color"
-                    android:text="@string/refuse"
-                    android:textColor="?attr/core_error_tip_color"
-                    android:textAllCaps="false"
-                    android:textSize="@dimen/contact_profile_btn_text_size"
-                    android:layout_gravity="center"
-                    android:textAlignment="center"
-                    android:gravity="center"
-                    android:visibility="gone"
-                    tools:visibility="visible" />
+<!--                <TextView-->
+<!--                    android:id="@+id/refuse_friend_send_btn"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/contact_profile_btn_height"-->
+<!--                    android:layout_marginTop="0.6dp"-->
+<!--                    android:background="@drawable/btn_bg_color"-->
+<!--                    android:text="@string/refuse"-->
+<!--                    android:textColor="?attr/core_error_tip_color"-->
+<!--                    android:textAllCaps="false"-->
+<!--                    android:textSize="@dimen/contact_profile_btn_text_size"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:visibility="gone"-->
+<!--                    tools:visibility="visible" />-->
 
-                <LinearLayout
-                    android:id="@+id/warning_extension_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical"
-                    android:visibility="visible">
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/warning_extension_list"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:visibility="visible">-->
 
-                </LinearLayout>
+<!--                </LinearLayout>-->
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

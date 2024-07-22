@@ -183,26 +183,26 @@ public class ChatLayoutSetting {
 
         
         // Add a welcome prompt with rich text
-        if (TUIChatConfigs.getGeneralConfig().isEnableWelcomeCustomMessage() && layout.getChatInfo().isEnableCustomHelloMessage()) {
-            InputMoreActionUnit unit = new InputMoreActionUnit() {};
-            unit.setIconResId(R.drawable.custom);
-            unit.setName(mContext.getString(R.string.test_custom_action));
-            unit.setActionId(CustomHelloMessage.CUSTOM_HELLO_ACTION_ID);
-            unit.setPriority(10);
-            unit.setOnClickListener(unit.new OnActionClickListener() {
-                @Override
-                public void onClick() {
-                    Gson gson = new Gson();
-                    CustomHelloMessage customHelloMessage = new CustomHelloMessage();
-                    customHelloMessage.version = TUIChatConstants.version;
-
-                    String data = gson.toJson(customHelloMessage);
-                    TUIMessageBean info = ChatMessageBuilder.buildCustomMessage(data, customHelloMessage.text, customHelloMessage.text.getBytes());
-                    layout.sendMessage(info, false);
-                }
-            });
-            inputView.addAction(unit);
-        }
+//        if (TUIChatConfigs.getGeneralConfig().isEnableWelcomeCustomMessage() && layout.getChatInfo().isEnableCustomHelloMessage()) {
+//            InputMoreActionUnit unit = new InputMoreActionUnit() {};
+//            unit.setIconResId(R.drawable.custom);
+//            unit.setName(mContext.getString(R.string.test_custom_action));
+//            unit.setActionId(CustomHelloMessage.CUSTOM_HELLO_ACTION_ID);
+//            unit.setPriority(10);
+//            unit.setOnClickListener(unit.new OnActionClickListener() {
+//                @Override
+//                public void onClick() {
+//                    Gson gson = new Gson();
+//                    CustomHelloMessage customHelloMessage = new CustomHelloMessage();
+//                    customHelloMessage.version = TUIChatConstants.version;
+//
+//                    String data = gson.toJson(customHelloMessage);
+//                    TUIMessageBean info = ChatMessageBuilder.buildCustomMessage(data, customHelloMessage.text, customHelloMessage.text.getBytes());
+//                    layout.sendMessage(info, false);
+//                }
+//            });
+//            inputView.addAction(unit);
+//        }
     }
 
     //    public static class CustomInputFragment extends BaseInputFragment {
