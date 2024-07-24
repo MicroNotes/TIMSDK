@@ -17,10 +17,10 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.msgNeedReadReceipt = NO;
+        self.msgNeedReadReceipt = YES;
         self.enableVideoCall = YES;
         self.enableAudioCall = YES;
-        self.enableWelcomeCustomMessage = YES;
+        self.enableWelcomeCustomMessage = NO;
         self.enablePopMenuEmojiReactAction = YES;
         self.enablePopMenuReplyAction = YES;
         self.enablePopMenuReferenceAction = YES;

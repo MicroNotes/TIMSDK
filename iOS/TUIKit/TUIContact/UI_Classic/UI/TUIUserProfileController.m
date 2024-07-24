@@ -106,19 +106,19 @@
                   return;
               }
 
-              [self.dataList addObject:({
-                                 NSMutableArray *inlist = @[].mutableCopy;
-                                 [inlist addObject:({
-                                             TUIButtonCellData *data = TUIButtonCellData.new;
-                                             data.title = TIMCommonLocalizableString(FriendAddTitle);
-                                             data.style = ButtonWhite;
-                                             data.cbuttonSelector = @selector(onAddFriend);
-                                             data.reuseId = @"ButtonCell";
-                                             data.hideSeparatorLine = YES;
-                                             data;
-                                         })];
-                                 inlist;
-                             })];
+//              [self.dataList addObject:({
+//                                 NSMutableArray *inlist = @[].mutableCopy;
+//                                 [inlist addObject:({
+//                                             TUIButtonCellData *data = TUIButtonCellData.new;
+//                                             data.title = TIMCommonLocalizableString(FriendAddTitle);
+//                                             data.style = ButtonWhite;
+//                                             data.cbuttonSelector = @selector(onAddFriend);
+//                                             data.reuseId = @"ButtonCell";
+//                                             data.hideSeparatorLine = YES;
+//                                             data;
+//                                         })];
+//                                 inlist;
+//                             })];
 
               [self.tableView reloadData];
             }

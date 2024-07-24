@@ -289,24 +289,26 @@
         [dataList addObject:groupInfoArray];
 
         // personal info
-        TUICommonTextCellData *nickData = [[TUICommonTextCellData alloc] init];
-        nickData.key = TIMCommonLocalizableString(TUIKitGroupProfileAlias);
-        nickData.value = self.selfInfo.nameCard;
-        nickData.cselector = @selector(didSelectGroupNick:);
-        nickData.showAccessory = YES;
-        self.groupNickNameCellData = nickData;
-        [dataList addObject:@[ nickData ]];
+        //我的群昵称
+//        TUICommonTextCellData *nickData = [[TUICommonTextCellData alloc] init];
+//        nickData.key = TIMCommonLocalizableString(TUIKitGroupProfileAlias);
+//        nickData.value = self.selfInfo.nameCard;
+//        nickData.cselector = @selector(didSelectGroupNick:);
+//        nickData.showAccessory = YES;
+//        self.groupNickNameCellData = nickData;
+//        [dataList addObject:@[ nickData ]];
 
         NSMutableArray *personalArray = [NSMutableArray array];
 
         TUICommonSwitchCellData *messageSwitchData = [[TUICommonSwitchCellData alloc] init];
 
-        if (![self.groupInfo.groupType isEqualToString:GroupType_Meeting]) {
-            messageSwitchData.on = (self.groupInfo.recvOpt == V2TIM_RECEIVE_NOT_NOTIFY_MESSAGE);
-            messageSwitchData.title = TIMCommonLocalizableString(TUIKitGroupProfileMessageDoNotDisturb);
-            messageSwitchData.cswitchSelector = @selector(didSelectOnNotDisturb:);
-            [personalArray addObject:messageSwitchData];
-        }
+        //消息免打扰
+//        if (![self.groupInfo.groupType isEqualToString:GroupType_Meeting]) {
+//            messageSwitchData.on = (self.groupInfo.recvOpt == V2TIM_RECEIVE_NOT_NOTIFY_MESSAGE);
+//            messageSwitchData.title = TIMCommonLocalizableString(TUIKitGroupProfileMessageDoNotDisturb);
+//            messageSwitchData.cswitchSelector = @selector(didSelectOnNotDisturb:);
+//            [personalArray addObject:messageSwitchData];
+//        }
 
         TUICommonSwitchCellData *markFold = [[TUICommonSwitchCellData alloc] init];
 
