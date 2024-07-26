@@ -40,7 +40,7 @@ apply from: '../../../../../../Android/config/upload.gradle'
 ext {
     groupid = "com.cclx.tencent.qcloud"
     name = "tuigroup"
-    version = "1.0.0"
+    version = "1.0.1"
 }
 
 dependencies {

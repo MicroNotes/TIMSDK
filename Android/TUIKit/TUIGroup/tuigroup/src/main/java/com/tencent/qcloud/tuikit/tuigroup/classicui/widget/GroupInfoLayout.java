@@ -69,12 +69,12 @@ public class GroupInfoLayout extends LinearLayout implements IGroupMemberLayout,
     private View mGroupNotice;
     private TextView mGroupNoticeText;
     private LineControllerView mGroupManageView;
-    private LineControllerView mNickView;
+//    private LineControllerView mNickView;
     private LineControllerView mJoinTypeView;
     private LineControllerView mInviteTypeView;
     private LineControllerView mTopSwitchView;
-    private LineControllerView mMsgRevOptionSwitchView;
-    private LineControllerView mFoldGroupChatSwitchView;
+//    private LineControllerView mMsgRevOptionSwitchView;
+//    private LineControllerView mFoldGroupChatSwitchView;
     private LineControllerView mChatBackground;
     private View mLayoutFold;
     private TextView mDissolveBtn;
@@ -165,16 +165,16 @@ public class GroupInfoLayout extends LinearLayout implements IGroupMemberLayout,
         mInviteTypes.addAll(Arrays.asList(getResources().getStringArray(R.array.group_invite_type)));
 
         
-        mNickView = findViewById(R.id.self_nickname_bar);
-        mNickView.setOnClickListener(this);
-        mNickView.setCanNav(true);
+//        mNickView = findViewById(R.id.self_nickname_bar);
+//        mNickView.setOnClickListener(this);
+//        mNickView.setCanNav(true);
         
         mTopSwitchView = findViewById(R.id.chat_to_top_switch);
         
-        mMsgRevOptionSwitchView = findViewById(R.id.msg_rev_option);
+//        mMsgRevOptionSwitchView = findViewById(R.id.msg_rev_option);
         
         mLayoutFold = findViewById(R.id.layout_fold);
-        mFoldGroupChatSwitchView = findViewById(R.id.fold_group_chat);
+//        mFoldGroupChatSwitchView = findViewById(R.id.fold_group_chat);
 
         
 //        mDissolveBtn = findViewById(R.id.group_dissolve_button);
@@ -313,13 +313,13 @@ public class GroupInfoLayout extends LinearLayout implements IGroupMemberLayout,
             getContext().startActivity(intent);
         } else if (v.getId() == R.id.self_nickname_bar) {
             PopupInputCard popupInputCard = new PopupInputCard((Activity) getContext());
-            popupInputCard.setContent(mNickView.getContent());
+//            popupInputCard.setContent(mNickView.getContent());
             popupInputCard.setTitle(getResources().getString(R.string.modify_nick_name_in_goup));
             popupInputCard.setOnPositive((result -> {
                 mPresenter.modifyMyGroupNickname(result);
-                mNickView.setContent(result);
+//                mNickView.setContent(result);
             }));
-            popupInputCard.show(mNickView, Gravity.BOTTOM);
+//            popupInputCard.show(mNickView, Gravity.BOTTOM);
 
         } else if (v.getId() == R.id.join_type_bar) {
             if (mGroupTypeView.getContent().equals(getContext().getString(R.string.chat_room))) {
@@ -506,7 +506,7 @@ public class GroupInfoLayout extends LinearLayout implements IGroupMemberLayout,
         mGroupTypeView.setContent(convertGroupText(info.getGroupType()));
 //        mJoinTypeView.setContent(mJoinTypes.get(info.getJoinType()));
 //        mInviteTypeView.setContent(mInviteTypes.get(info.getInviteType()));
-        mNickView.setContent(mPresenter.getNickName());
+//        mNickView.setContent(mPresenter.getNickName());
 
         mTopSwitchView.setCheckListener(null);
         mTopSwitchView.setChecked(mGroupInfo.isTopChat());
@@ -528,99 +528,99 @@ public class GroupInfoLayout extends LinearLayout implements IGroupMemberLayout,
                 });
             }
         });
-        mFoldGroupChatSwitchView.setCheckListener(null);
+//        mFoldGroupChatSwitchView.setCheckListener(null);
         if (GroupInfo.GROUP_TYPE_MEETING.equals(info.getGroupType())) {
-            mMsgRevOptionSwitchView.setVisibility(GONE);
+//            mMsgRevOptionSwitchView.setVisibility(GONE);
             mLayoutFold.setVisibility(GONE);
         } else {
             if (mGroupInfo.getMessageReceiveOption()) {
                 mLayoutFold.setVisibility(View.VISIBLE);
                 if (mGroupInfo.isFolded()) {
-                    mFoldGroupChatSwitchView.setChecked(true);
+//                    mFoldGroupChatSwitchView.setChecked(true);
                 }
             } else {
                 mLayoutFold.setVisibility(View.GONE);
             }
 
-            mMsgRevOptionSwitchView.setCheckListener(null);
-            mMsgRevOptionSwitchView.setChecked(mGroupInfo.getMessageReceiveOption());
-            mMsgRevOptionSwitchView.setCheckListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(final CompoundButton buttonView, boolean isChecked) {
-                    mMsgRevOptionSwitchView.setMask(true);
-                    mPresenter.setGroupNotDisturb(mGroupInfo, isChecked, new IUIKitCallback<Void>() {
-                        @Override
-                        public void onSuccess(Void data) {
-                            mMsgRevOptionSwitchView.setMask(false);
-                            if (!isChecked) {
-                                mLayoutFold.setVisibility(View.GONE);
-                                if (mGroupInfo.isFolded()) {
-                                    mPresenter.setGroupFold(mGroupInfo, false, new IUIKitCallback<Void>() {
-                                        @Override
-                                        public void onSuccess(Void data) {
-                                            mFoldGroupChatSwitchView.setChecked(false);
-                                        }
-
-                                        @Override
-                                        public void onError(String module, int errCode, String errMsg) {
-                                            ToastUtil.toastShortMessage(module + ", Error code = " + errCode + ", desc = " + errMsg);
-                                        }
-                                    });
-                                }
-                            } else {
-                                mLayoutFold.setVisibility(View.VISIBLE);
-                            }
-                        }
-
-                        @Override
-                        public void onError(String module, int errCode, String errMsg) {
-                            mMsgRevOptionSwitchView.setMask(false);
-                            ToastUtil.toastShortMessage(module + ", Error code = " + errCode + ", desc = " + errMsg);
-                        }
-                    });
-                }
-            });
+//            mMsgRevOptionSwitchView.setCheckListener(null);
+//            mMsgRevOptionSwitchView.setChecked(mGroupInfo.getMessageReceiveOption());
+//            mMsgRevOptionSwitchView.setCheckListener(new CompoundButton.OnCheckedChangeListener() {
+//                @Override
+//                public void onCheckedChanged(final CompoundButton buttonView, boolean isChecked) {
+//                    mMsgRevOptionSwitchView.setMask(true);
+//                    mPresenter.setGroupNotDisturb(mGroupInfo, isChecked, new IUIKitCallback<Void>() {
+//                        @Override
+//                        public void onSuccess(Void data) {
+//                            mMsgRevOptionSwitchView.setMask(false);
+//                            if (!isChecked) {
+//                                mLayoutFold.setVisibility(View.GONE);
+//                                if (mGroupInfo.isFolded()) {
+//                                    mPresenter.setGroupFold(mGroupInfo, false, new IUIKitCallback<Void>() {
+//                                        @Override
+//                                        public void onSuccess(Void data) {
+//                                            mFoldGroupChatSwitchView.setChecked(false);
+//                                        }
+//
+//                                        @Override
+//                                        public void onError(String module, int errCode, String errMsg) {
+//                                            ToastUtil.toastShortMessage(module + ", Error code = " + errCode + ", desc = " + errMsg);
+//                                        }
+//                                    });
+//                                }
+//                            } else {
+//                                mLayoutFold.setVisibility(View.VISIBLE);
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void onError(String module, int errCode, String errMsg) {
+//                            mMsgRevOptionSwitchView.setMask(false);
+//                            ToastUtil.toastShortMessage(module + ", Error code = " + errCode + ", desc = " + errMsg);
+//                        }
+//                    });
+//                }
+//            });
         }
 
         if (mGroupInfo.isFolded()) {
             mTopSwitchView.setMask(true);
         }
 
-        mFoldGroupChatSwitchView.setCheckListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                mPresenter.setGroupFold(mGroupInfo, isChecked, new IUIKitCallback<Void>() {
-                    @Override
-                    public void onSuccess(Void data) {
-                        if (isChecked) {
-                            if (mGroupInfo.isTopChat()) {
-                                mPresenter.setTopConversation(mGroupInfo.getId(), false, new IUIKitCallback<Void>() {
-                                    @Override
-                                    public void onSuccess(Void data) {
-                                        mTopSwitchView.setChecked(false);
-                                        mTopSwitchView.setMask(true);
-                                    }
-
-                                    @Override
-                                    public void onError(String module, int errCode, String errMsg) {
-                                        ToastUtil.toastShortMessage(module + ", Error code = " + errCode + ", desc = " + errMsg);
-                                    }
-                                });
-                            } else {
-                                mTopSwitchView.setMask(true);
-                            }
-                        } else {
-                            mTopSwitchView.setMask(false);
-                        }
-                    }
-
-                    @Override
-                    public void onError(String module, int errCode, String errMsg) {
-                        ToastUtil.toastShortMessage(module + ", Error code = " + errCode + ", desc = " + errMsg);
-                    }
-                });
-            }
-        });
+//        mFoldGroupChatSwitchView.setCheckListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                mPresenter.setGroupFold(mGroupInfo, isChecked, new IUIKitCallback<Void>() {
+//                    @Override
+//                    public void onSuccess(Void data) {
+//                        if (isChecked) {
+//                            if (mGroupInfo.isTopChat()) {
+//                                mPresenter.setTopConversation(mGroupInfo.getId(), false, new IUIKitCallback<Void>() {
+//                                    @Override
+//                                    public void onSuccess(Void data) {
+//                                        mTopSwitchView.setChecked(false);
+//                                        mTopSwitchView.setMask(true);
+//                                    }
+//
+//                                    @Override
+//                                    public void onError(String module, int errCode, String errMsg) {
+//                                        ToastUtil.toastShortMessage(module + ", Error code = " + errCode + ", desc = " + errMsg);
+//                                    }
+//                                });
+//                            } else {
+//                                mTopSwitchView.setMask(true);
+//                            }
+//                        } else {
+//                            mTopSwitchView.setMask(false);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onError(String module, int errCode, String errMsg) {
+//                        ToastUtil.toastShortMessage(module + ", Error code = " + errCode + ", desc = " + errMsg);
+//                    }
+//                });
+//            }
+//        });
 
 //        mDissolveBtn.setText(R.string.dissolve);
 //        mClearMsgBtn.setText(R.string.clear_message);
@@ -694,7 +694,7 @@ public class GroupInfoLayout extends LinearLayout implements IGroupMemberLayout,
                 break;
             case TUIGroupConstants.Group.MODIFY_MEMBER_NAME:
                 ToastUtil.toastLongMessage(getResources().getString(R.string.modify_nickname_success));
-                mNickView.setContent(value.toString());
+//                mNickView.setContent(value.toString());
                 break;
             default:
                 break;
