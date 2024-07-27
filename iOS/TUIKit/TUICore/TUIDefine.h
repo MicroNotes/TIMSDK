@@ -40,6 +40,7 @@
 #define BussinessID_Order @"order"
 // Supported in 6.5 and later
 #define BussinessID_Typing @"user_typing_status"
+#define BussinessID_Card @"cclx_card_notice"
 // Supported in 7.1 and later
 #define BussinessID_GroupPoll @"group_poll"
 #define BussinessID_GroupNote @"group_note"

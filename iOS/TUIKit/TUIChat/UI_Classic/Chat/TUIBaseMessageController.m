@@ -41,6 +41,8 @@
 #import "TUIVideoMessageCell.h"
 #import "TUIVoiceMessageCell.h"
 #import "TUIMessageCellConfig.h"
+#import "TUICardCell.h"
+#import "TIMActionManager.h"
 
 @interface TUIBaseMessageController () <TUIMessageCellDelegate,
                                         TUIJoinGroupMessageCellDelegate,
@@ -919,6 +921,8 @@ ReceiveReadMsgWithGroupID:(NSString *)groupID
         [self showReplyMessage:(TUIReplyMessageCell *)cell];
     } else if ([cell isKindOfClass:TUIOrderCell.class]) {
         [self showOrderMessage:(TUIOrderCell *)cell];
+    } else if ([cell isKindOfClass:TUICardCell.class]) {
+        [self showCardMessage:(TUICardCell *)cell];
     }
     
     if ([self.delegate respondsToSelector:@selector(messageController:onSelectMessageContent:)]) {
@@ -1765,6 +1769,13 @@ ReceiveReadMsgWithGroupID:(NSString *)groupID
     TUIOrderCellData *cellData = cell.customData;
     if (cellData.link) {
         [TUITool openLinkWithURL:[NSURL URLWithString:cellData.link]];
+    }
+}
+
+- (void)showCardMessage:(TUICardCell *)cell {
+    TUICardCellData *cellData = cell.customData;
+    if (cellData.actionDic) {
+        [[TIMActionManager shareManager] handleJumpAction:cellData.actionDic];
     }
 }
 
