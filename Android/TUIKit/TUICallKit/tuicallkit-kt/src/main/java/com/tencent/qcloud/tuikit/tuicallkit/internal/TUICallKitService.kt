@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCaller
-import com.google.gson.Gson
 import com.tencent.qcloud.tuicore.TUIConstants
 import com.tencent.qcloud.tuicore.TUIConstants.TUICalling.ObjectFactory.RecentCalls
 import com.tencent.qcloud.tuicore.TUICore
@@ -19,10 +18,10 @@ import com.tencent.qcloud.tuicore.interfaces.ITUIService
 import com.tencent.qcloud.tuicore.interfaces.TUIExtensionEventListener
 import com.tencent.qcloud.tuicore.interfaces.TUIExtensionInfo
 import com.tencent.qcloud.tuikit.TUICommonDefine
-import com.tencent.qcloud.tuikit.TUICommonDefine.RoomId
 import com.tencent.qcloud.tuikit.tuicallengine.TUICallDefine
 import com.tencent.qcloud.tuikit.tuicallengine.TUICallDefine.CallParams
 import com.tencent.qcloud.tuikit.tuicallengine.TUICallEngine
+import com.tencent.qcloud.tuikit.tuicallengine.impl.base.TUILog
 import com.tencent.qcloud.tuikit.tuicallkit.R
 import com.tencent.qcloud.tuikit.tuicallkit.TUICallKit
 import com.tencent.qcloud.tuikit.tuicallkit.extensions.joiningroupcall.JoinInGroupCallViewModel
@@ -31,7 +30,8 @@ import org.json.JSONException
 import org.json.JSONObject
 
 
-class TUICallKitService private constructor(context: Context) : ITUINotification, ITUIService, ITUIExtension,
+class TUICallKitService private constructor(context: Context) : ITUINotification, ITUIService,
+    ITUIExtension,
     ITUIObjectFactory {
     private var appContext: Context
     private var joinInGroupCallViewModel: JoinInGroupCallViewModel? = null
@@ -49,17 +49,44 @@ class TUICallKitService private constructor(context: Context) : ITUINotification
 
         TUICore.registerService(TUIConstants.TUICalling.SERVICE_NAME, this)
 
-        TUICore.registerExtension(TUIConstants.TUIChat.Extension.InputMore.CLASSIC_EXTENSION_ID, this)
-        TUICore.registerExtension(TUIConstants.TUIChat.Extension.InputMore.MINIMALIST_EXTENSION_ID, this)
-        TUICore.registerExtension(TUIConstants.TUIGroup.Extension.GroupProfileItem.MINIMALIST_EXTENSION_ID, this)
-        TUICore.registerExtension(TUIConstants.TUIGroup.Extension.GroupProfileItem.CLASSIC_EXTENSION_ID, this)
-        TUICore.registerExtension(TUIConstants.TUIContact.Extension.FriendProfileItem.CLASSIC_EXTENSION_ID, this)
-        TUICore.registerExtension(TUIConstants.TUIContact.Extension.FriendProfileItem.MINIMALIST_EXTENSION_ID, this)
-        TUICore.registerExtension(TUIConstants.TUIChat.Extension.ChatNavigationMoreItem.CLASSIC_EXTENSION_ID, this)
-        TUICore.registerExtension(TUIConstants.TUIChat.Extension.ChatNavigationMoreItem.MINIMALIST_EXTENSION_ID, this)
+        TUICore.registerExtension(
+            TUIConstants.TUIChat.Extension.InputMore.CLASSIC_EXTENSION_ID,
+            this
+        )
+        TUICore.registerExtension(
+            TUIConstants.TUIChat.Extension.InputMore.MINIMALIST_EXTENSION_ID,
+            this
+        )
+        TUICore.registerExtension(
+            TUIConstants.TUIGroup.Extension.GroupProfileItem.MINIMALIST_EXTENSION_ID,
+            this
+        )
+        TUICore.registerExtension(
+            TUIConstants.TUIGroup.Extension.GroupProfileItem.CLASSIC_EXTENSION_ID,
+            this
+        )
+        TUICore.registerExtension(
+            TUIConstants.TUIContact.Extension.FriendProfileItem.CLASSIC_EXTENSION_ID,
+            this
+        )
+        TUICore.registerExtension(
+            TUIConstants.TUIContact.Extension.FriendProfileItem.MINIMALIST_EXTENSION_ID,
+            this
+        )
+        TUICore.registerExtension(
+            TUIConstants.TUIChat.Extension.ChatNavigationMoreItem.CLASSIC_EXTENSION_ID,
+            this
+        )
+        TUICore.registerExtension(
+            TUIConstants.TUIChat.Extension.ChatNavigationMoreItem.MINIMALIST_EXTENSION_ID,
+            this
+        )
 
         TUICore.registerObjectFactory(TUIConstants.TUICalling.ObjectFactory.FACTORY_NAME, this)
-        TUICore.registerExtension(TUIConstants.TUIChat.Extension.ChatViewTopAreaExtension.EXTENSION_ID, this)
+        TUICore.registerExtension(
+            TUIConstants.TUIChat.Extension.ChatViewTopAreaExtension.EXTENSION_ID,
+            this
+        )
     }
 
     override fun onNotifyEvent(key: String?, subKey: String?, param: Map<String, Any>?) {
@@ -81,12 +108,16 @@ class TUICallKitService private constructor(context: Context) : ITUINotification
             Log.i(TAG, "onNotifyEvent: callOfflineData : $data")
 
             val map = HashMap<String, Any?>()
-            map[TUIConstants.TIMPush.NOTIFICATION.PUSH_ID] = data[TUIConstants.TIMPush.NOTIFICATION.PUSH_ID]
-            map[TUIConstants.TIMPush.NOTIFICATION.PUSH_EVENT_TIME_KEY] = System.currentTimeMillis() / 1000
+            map[TUIConstants.TIMPush.NOTIFICATION.PUSH_ID] =
+                data[TUIConstants.TIMPush.NOTIFICATION.PUSH_ID]
+            map[TUIConstants.TIMPush.NOTIFICATION.PUSH_EVENT_TIME_KEY] =
+                System.currentTimeMillis() / 1000
             map[TUIConstants.TIMPush.NOTIFICATION.PUSH_EVENT_TYPE_KEY] = 0
 
             TUICore.callService(
-                TUIConstants.TIMPush.SERVICE_NAME, TUIConstants.TIMPush.METHOD_REPORT_NOTIFICATION_CLICKED, map
+                TUIConstants.TIMPush.SERVICE_NAME,
+                TUIConstants.TIMPush.METHOD_REPORT_NOTIFICATION_CLICKED,
+                map
             )
         }
     }
@@ -137,17 +168,23 @@ class TUICallKitService private constructor(context: Context) : ITUINotification
         }
     }
 
-    override fun onRaiseExtension(extensionID: String?, parentView: View?, param: MutableMap<String, Any>?): Boolean {
+    override fun onRaiseExtension(
+        extensionID: String?,
+        parentView: View?,
+        param: MutableMap<String, Any>?
+    ): Boolean {
         if (extensionID != TUIConstants.TUIChat.Extension.ChatViewTopAreaExtension.EXTENSION_ID || param == null) {
             return false
         }
 
-        val isGroupChat = param[TUIConstants.TUIChat.Extension.ChatViewTopAreaExtension.IS_GROUP] as? Boolean
+        val isGroupChat =
+            param[TUIConstants.TUIChat.Extension.ChatViewTopAreaExtension.IS_GROUP] as? Boolean
         if (isGroupChat == null || !isGroupChat) {
             return false
         }
 
-        val groupId = param[TUIConstants.TUIChat.Extension.ChatViewTopAreaExtension.CHAT_ID] as? String
+        val groupId =
+            param[TUIConstants.TUIChat.Extension.ChatViewTopAreaExtension.CHAT_ID] as? String
         if (groupId.isNullOrEmpty()) {
             return false
         }
@@ -172,26 +209,37 @@ class TUICallKitService private constructor(context: Context) : ITUINotification
         return joinInGroupCallViewModel as JoinInGroupCallViewModel
     }
 
-    override fun onGetExtension(extensionID: String?, param: Map<String?, Any?>?): List<TUIExtensionInfo?>? {
-        if (TextUtils.equals(extensionID, TUIConstants.TUIChat.Extension.InputMore.CLASSIC_EXTENSION_ID)) {
+    override fun onGetExtension(
+        extensionID: String?,
+        param: Map<String?, Any?>?
+    ): List<TUIExtensionInfo?>? {
+        if (TextUtils.equals(
+                extensionID,
+                TUIConstants.TUIChat.Extension.InputMore.CLASSIC_EXTENSION_ID
+            )
+        ) {
             return getClassicChatInputMoreExtension(param)
         } else if (TextUtils.equals(
-                extensionID, TUIConstants.TUIGroup.Extension.GroupProfileItem.MINIMALIST_EXTENSION_ID
+                extensionID,
+                TUIConstants.TUIGroup.Extension.GroupProfileItem.MINIMALIST_EXTENSION_ID
             )
         ) {
             return getMinimalistGroupProfileExtension(param)
         } else if (TextUtils.equals(
-                extensionID, TUIConstants.TUIContact.Extension.FriendProfileItem.CLASSIC_EXTENSION_ID
+                extensionID,
+                TUIConstants.TUIContact.Extension.FriendProfileItem.CLASSIC_EXTENSION_ID
             )
         ) {
             return getClassicFriendProfileExtension(param)
         } else if (TextUtils.equals(
-                extensionID, TUIConstants.TUIContact.Extension.FriendProfileItem.MINIMALIST_EXTENSION_ID
+                extensionID,
+                TUIConstants.TUIContact.Extension.FriendProfileItem.MINIMALIST_EXTENSION_ID
             )
         ) {
             return getMinimalistFriendProfileExtension(param)
         } else if (TextUtils.equals(
-                extensionID, TUIConstants.TUIChat.Extension.ChatNavigationMoreItem.MINIMALIST_EXTENSION_ID
+                extensionID,
+                TUIConstants.TUIChat.Extension.ChatNavigationMoreItem.MINIMALIST_EXTENSION_ID
             )
         ) {
             return getMinimalistChatNavigationMoreExtension(param)
@@ -204,8 +252,10 @@ class TUICallKitService private constructor(context: Context) : ITUINotification
         voiceCallExtension.weight = 600
         val videoCallExtension = TUIExtensionInfo()
         videoCallExtension.weight = 500
-        val userID: String? = getOrDefault<String>(param, TUIConstants.TUIChat.Extension.InputMore.USER_ID, null)
-        val groupID: String? = getOrDefault<String>(param, TUIConstants.TUIChat.Extension.InputMore.GROUP_ID, null)
+        val userID: String? =
+            getOrDefault<String>(param, TUIConstants.TUIChat.Extension.InputMore.USER_ID, null)
+        val groupID: String? =
+            getOrDefault<String>(param, TUIConstants.TUIChat.Extension.InputMore.GROUP_ID, null)
         val voiceListener: ResultTUIExtensionEventListener = ResultTUIExtensionEventListener()
         voiceListener.mediaType = TUICallDefine.MediaType.Audio
         voiceListener.userID = userID
@@ -230,9 +280,17 @@ class TUICallKitService private constructor(context: Context) : ITUINotification
             TUIConstants.TUIChat.Extension.InputMore.CONTEXT, null
         )
         val filterVoice: Boolean =
-            getOrDefault<Boolean>(param, TUIConstants.TUIChat.Extension.InputMore.FILTER_VOICE_CALL, false) == true
+            getOrDefault<Boolean>(
+                param,
+                TUIConstants.TUIChat.Extension.InputMore.FILTER_VOICE_CALL,
+                false
+            ) == true
         val filterVideo: Boolean =
-            getOrDefault<Boolean>(param, TUIConstants.TUIChat.Extension.InputMore.FILTER_VIDEO_CALL, false) == true
+            getOrDefault<Boolean>(
+                param,
+                TUIConstants.TUIChat.Extension.InputMore.FILTER_VIDEO_CALL,
+                false
+            ) == true
         val extensionInfoList: MutableList<TUIExtensionInfo> = ArrayList()
         if (!filterVoice) {
             extensionInfoList.add(voiceCallExtension)
@@ -250,6 +308,13 @@ class TUICallKitService private constructor(context: Context) : ITUINotification
         var userID: String? = null
         var groupID: String? = null
         override fun onClicked(param: Map<String, Any>?) {
+            val callParams = CallParams().apply {
+                offlinePushInfo = TUICallDefine.OfflinePushInfo().apply {
+                    title = "测试呼叫"
+                    desc = "测试呼叫离线推送"
+                    iosPushType = TUICallDefine.IOSOfflinePushType.VoIP
+                }
+            }
             if (!TextUtils.isEmpty(groupID)) {
                 var groupMemberSelectActivityName =
                     TUIConstants.TUIContact.StartActivity.GroupMemberSelect.CLASSIC_ACTIVITY_NAME
@@ -258,9 +323,18 @@ class TUICallKitService private constructor(context: Context) : ITUINotification
                         TUIConstants.TUIContact.StartActivity.GroupMemberSelect.MINIMALIST_ACTIVITY_NAME
                 }
                 val bundle = Bundle()
-                bundle.putString(TUIConstants.TUIContact.StartActivity.GroupMemberSelect.GROUP_ID, groupID)
-                bundle.putBoolean(TUIConstants.TUIContact.StartActivity.GroupMemberSelect.SELECT_FOR_CALL, true)
-                bundle.putInt(TUIConstants.TUIContact.StartActivity.GroupMemberSelect.MEMBER_LIMIT, CALL_MEMBER_LIMIT)
+                bundle.putString(
+                    TUIConstants.TUIContact.StartActivity.GroupMemberSelect.GROUP_ID,
+                    groupID
+                )
+                bundle.putBoolean(
+                    TUIConstants.TUIContact.StartActivity.GroupMemberSelect.SELECT_FOR_CALL,
+                    true
+                )
+                bundle.putInt(
+                    TUIConstants.TUIContact.StartActivity.GroupMemberSelect.MEMBER_LIMIT,
+                    CALL_MEMBER_LIMIT
+                )
                 TUICore.startActivityForResult(
                     activityResultCaller, groupMemberSelectActivityName, bundle
                 ) { result: ActivityResult ->
@@ -269,13 +343,33 @@ class TUICallKitService private constructor(context: Context) : ITUINotification
                         val stringList: ArrayList<String>? = data.getStringArrayListExtra(
                             TUIConstants.TUIContact.StartActivity.GroupMemberSelect.DATA_LIST
                         )
-                        TUICallKit.createInstance(appContext).groupCall(groupID!!, stringList, mediaType!!)
+                        TUICallKit.createInstance(appContext)
+                            .groupCall(groupID!!, stringList, mediaType!!, callParams, object :TUICommonDefine.Callback{
+                                override fun onSuccess() {
+                                    TUILog.d("TUI","拨打电话成功")
+                                }
+
+                                override fun onError(p0: Int, p1: String?) {
+                                    TUILog.e("TUI","拨打电话失败$p0,$p1")
+                                }
+                            })
                     }
                 }
             } else if (!TextUtils.isEmpty(userID)) {
-                TUICallKit.createInstance(appContext).call(userID!!, mediaType!!)
+                TUICallKit.createInstance(appContext).call(userID!!, mediaType!!, callParams, object :TUICommonDefine.Callback{
+                    override fun onSuccess() {
+                       TUILog.d("TUI","拨打电话成功")
+                    }
+
+                    override fun onError(p0: Int, p1: String?) {
+                        TUILog.e("TUI","拨打电话失败$p0,$p1")
+                    }
+                })
             } else {
-                Log.e(TAG, "onClicked event ignored, groupId is empty or userId is empty, cannot start call")
+                Log.e(
+                    TAG,
+                    "onClicked event ignored, groupId is empty or userId is empty, cannot start call"
+                )
             }
         }
     }
@@ -285,7 +379,11 @@ class TUICallKitService private constructor(context: Context) : ITUINotification
         voiceCallExtension.weight = 200
         val videoCallExtension = TUIExtensionInfo()
         videoCallExtension.weight = 100
-        val groupID = getOrDefault<String?>(param, TUIConstants.TUIGroup.Extension.GroupProfileItem.GROUP_ID, null)
+        val groupID = getOrDefault<String?>(
+            param,
+            TUIConstants.TUIGroup.Extension.GroupProfileItem.GROUP_ID,
+            null
+        )
         val voiceListener = ResultTUIExtensionEventListener()
         voiceListener.mediaType = TUICallDefine.MediaType.Audio
         voiceListener.groupID = groupID
@@ -321,7 +419,11 @@ class TUICallKitService private constructor(context: Context) : ITUINotification
         voiceCallExtension.weight = 300
         val videoCallExtension = TUIExtensionInfo()
         videoCallExtension.weight = 200
-        val userID = getOrDefault<String?>(param, TUIConstants.TUIContact.Extension.FriendProfileItem.USER_ID, null)
+        val userID = getOrDefault<String?>(
+            param,
+            TUIConstants.TUIContact.Extension.FriendProfileItem.USER_ID,
+            null
+        )
         val voiceListener = ResultTUIExtensionEventListener()
         voiceListener.mediaType = TUICallDefine.MediaType.Audio
         voiceListener.userID = userID
@@ -343,7 +445,11 @@ class TUICallKitService private constructor(context: Context) : ITUINotification
         voiceCallExtension.weight = 300
         val videoCallExtension = TUIExtensionInfo()
         videoCallExtension.weight = 200
-        val userID = getOrDefault<String?>(param, TUIConstants.TUIContact.Extension.FriendProfileItem.USER_ID, null)
+        val userID = getOrDefault<String?>(
+            param,
+            TUIConstants.TUIContact.Extension.FriendProfileItem.USER_ID,
+            null
+        )
         val voiceListener = ResultTUIExtensionEventListener()
         voiceListener.mediaType = TUICallDefine.MediaType.Audio
         voiceListener.userID = userID
@@ -365,8 +471,16 @@ class TUICallKitService private constructor(context: Context) : ITUINotification
     }
 
     private fun getMinimalistChatNavigationMoreExtension(param: Map<String?, Any?>?): List<TUIExtensionInfo>? {
-        val userID = getOrDefault<String?>(param, TUIConstants.TUIChat.Extension.ChatNavigationMoreItem.USER_ID, null)
-        val groupID = getOrDefault<String?>(param, TUIConstants.TUIChat.Extension.ChatNavigationMoreItem.GROUP_ID, null)
+        val userID = getOrDefault<String?>(
+            param,
+            TUIConstants.TUIChat.Extension.ChatNavigationMoreItem.USER_ID,
+            null
+        )
+        val groupID = getOrDefault<String?>(
+            param,
+            TUIConstants.TUIChat.Extension.ChatNavigationMoreItem.GROUP_ID,
+            null
+        )
         val voiceListener = ResultTUIExtensionEventListener()
         voiceListener.mediaType = TUICallDefine.MediaType.Audio
         voiceListener.groupID = groupID
@@ -417,13 +531,22 @@ class TUICallKitService private constructor(context: Context) : ITUINotification
         if (TextUtils.isEmpty(method)) {
             return null
         }
-        if (null != param && TextUtils.equals(TUIConstants.TUICalling.METHOD_NAME_ENABLE_FLOAT_WINDOW, method)) {
-            val enableFloatWindow = param[TUIConstants.TUICalling.PARAM_NAME_ENABLE_FLOAT_WINDOW] as Boolean
+        if (null != param && TextUtils.equals(
+                TUIConstants.TUICalling.METHOD_NAME_ENABLE_FLOAT_WINDOW,
+                method
+            )
+        ) {
+            val enableFloatWindow =
+                param[TUIConstants.TUICalling.PARAM_NAME_ENABLE_FLOAT_WINDOW] as Boolean
             Log.i(TAG, "onCall, enableFloatWindow: $enableFloatWindow")
             TUICallKit.createInstance(appContext).enableFloatWindow(enableFloatWindow)
             return null
         }
-        if (null != param && TextUtils.equals(TUIConstants.TUICalling.METHOD_NAME_ENABLE_MULTI_DEVICE, method)) {
+        if (null != param && TextUtils.equals(
+                TUIConstants.TUICalling.METHOD_NAME_ENABLE_MULTI_DEVICE,
+                method
+            )
+        ) {
             val enable = param[TUIConstants.TUICalling.PARAM_NAME_ENABLE_MULTI_DEVICE] as Boolean
             Log.i(TAG, "onCall, enableMultiDevice: $enable")
             TUICallEngine.createInstance(appContext)
@@ -433,13 +556,22 @@ class TUICallKitService private constructor(context: Context) : ITUINotification
                 })
             return null
         }
-        if (param != null && TextUtils.equals(TUIConstants.TUICalling.METHOD_NAME_ENABLE_INCOMING_BANNER, method)) {
+        if (param != null && TextUtils.equals(
+                TUIConstants.TUICalling.METHOD_NAME_ENABLE_INCOMING_BANNER,
+                method
+            )
+        ) {
             val enable = param[TUIConstants.TUICalling.PARAM_NAME_ENABLE_INCOMING_BANNER] as Boolean
             TUICallKit.createInstance(appContext).enableIncomingBanner(enable)
             return null
         }
-        if (param != null && TextUtils.equals(TUIConstants.TUICalling.METHOD_NAME_ENABLE_VIRTUAL_BACKGROUND, method)) {
-            val enable = param[TUIConstants.TUICalling.PARAM_NAME_ENABLE_VIRTUAL_BACKGROUND] as Boolean
+        if (param != null && TextUtils.equals(
+                TUIConstants.TUICalling.METHOD_NAME_ENABLE_VIRTUAL_BACKGROUND,
+                method
+            )
+        ) {
+            val enable =
+                param[TUIConstants.TUICalling.PARAM_NAME_ENABLE_VIRTUAL_BACKGROUND] as Boolean
             TUICallKit.createInstance(appContext).enableVirtualBackground(enable)
             return null
         }
@@ -454,14 +586,22 @@ class TUICallKitService private constructor(context: Context) : ITUINotification
             } else if (TUIConstants.TUICalling.TYPE_VIDEO == typeString) {
                 mediaType = TUICallDefine.MediaType.Video
             }
-            val callParams: CallParams = CallParams()
-            callParams.offlinePushInfo.iosPushType = TUICallDefine.IOSOfflinePushType.VoIP
+            val callParams = CallParams().apply {
+                offlinePushInfo = TUICallDefine.OfflinePushInfo().apply {
+                    iosPushType = TUICallDefine.IOSOfflinePushType.VoIP
+                }
+            }
             if (!TextUtils.isEmpty(groupID)) {
-                TUICallKit.createInstance(appContext).groupCall(groupID!!, userIdList, mediaType, callParams, null)
+                TUICallKit.createInstance(appContext)
+                    .groupCall(groupID!!, userIdList, mediaType, callParams, null)
             } else if (userIdList?.size == 1) {
-                TUICallKit.createInstance(appContext).call(userIdList[0]!!, mediaType, callParams, null)
+                TUICallKit.createInstance(appContext)
+                    .call(userIdList[0]!!, mediaType, callParams, null)
             } else {
-                Log.e(TAG, "onCall ignored, groupId is empty and userList is not 1, cannot start call or groupCall")
+                Log.e(
+                    TAG,
+                    "onCall ignored, groupId is empty and userList is not 1, cannot start call or groupCall"
+                )
             }
         }
         return null
