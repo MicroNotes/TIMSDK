@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCaller
+import com.google.gson.Gson
 import com.tencent.qcloud.tuicore.TUIConstants
 import com.tencent.qcloud.tuicore.TUIConstants.TUICalling.ObjectFactory.RecentCalls
 import com.tencent.qcloud.tuicore.TUICore
@@ -18,7 +19,9 @@ import com.tencent.qcloud.tuicore.interfaces.ITUIService
 import com.tencent.qcloud.tuicore.interfaces.TUIExtensionEventListener
 import com.tencent.qcloud.tuicore.interfaces.TUIExtensionInfo
 import com.tencent.qcloud.tuikit.TUICommonDefine
+import com.tencent.qcloud.tuikit.TUICommonDefine.RoomId
 import com.tencent.qcloud.tuikit.tuicallengine.TUICallDefine
+import com.tencent.qcloud.tuikit.tuicallengine.TUICallDefine.CallParams
 import com.tencent.qcloud.tuikit.tuicallengine.TUICallEngine
 import com.tencent.qcloud.tuikit.tuicallkit.R
 import com.tencent.qcloud.tuikit.tuicallkit.TUICallKit
@@ -26,6 +29,7 @@ import com.tencent.qcloud.tuikit.tuicallkit.extensions.joiningroupcall.JoinInGro
 import com.tencent.qcloud.tuikit.tuicallkit.extensions.recents.RecentCallsFragment
 import org.json.JSONException
 import org.json.JSONObject
+
 
 class TUICallKitService private constructor(context: Context) : ITUINotification, ITUIService, ITUIExtension,
     ITUIObjectFactory {
@@ -450,10 +454,12 @@ class TUICallKitService private constructor(context: Context) : ITUINotification
             } else if (TUIConstants.TUICalling.TYPE_VIDEO == typeString) {
                 mediaType = TUICallDefine.MediaType.Video
             }
+            val callParams: CallParams = CallParams()
+            callParams.offlinePushInfo.iosPushType = TUICallDefine.IOSOfflinePushType.VoIP
             if (!TextUtils.isEmpty(groupID)) {
-                TUICallKit.createInstance(appContext).groupCall(groupID!!, userIdList, mediaType)
+                TUICallKit.createInstance(appContext).groupCall(groupID!!, userIdList, mediaType, callParams, null)
             } else if (userIdList?.size == 1) {
-                TUICallKit.createInstance(appContext).call(userIdList[0]!!, mediaType)
+                TUICallKit.createInstance(appContext).call(userIdList[0]!!, mediaType, callParams, null)
             } else {
                 Log.e(TAG, "onCall ignored, groupId is empty and userList is not 1, cannot start call or groupCall")
             }
