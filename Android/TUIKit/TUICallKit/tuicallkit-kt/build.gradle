@@ -38,7 +38,7 @@ apply from: '../../../../../../Android/config/upload.gradle'
 ext {
     groupid = "com.cclx.tencent.qcloud"
     name = "tuicallkit"
-    version = "1.0.0"
+    version = "1.0.2"
 }
 
 dependencies {
