@@ -39,7 +39,7 @@
 
 // dic 包含target，query
 - (void)handleJumpAction:(NSDictionary *)dic {
-    [self handleJumpAction:dic[@"action"] query:dic[@"query"]];
+    [self handleJumpAction:dic[@"target"] query:dic[@"query"]];
 }
 
 @end

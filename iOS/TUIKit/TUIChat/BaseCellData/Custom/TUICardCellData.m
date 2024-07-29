@@ -24,7 +24,7 @@
         NSLog(@"error:%@",error.description);
     }
 #warning 测试数据
-    cellData.actionDic = @{@"target":@"h5",@"query":@"ewogICJ1cmwiOiAiaHR0cHM6Ly9oYmMtaW5mby50ZXN0Lmh1YW5nYmFvY2hlLmNvbS9oNVRvQXBwLyIsCiAgInF1ZXJ5IjogInRhYj0xIgp9"};
+//    cellData.actionDic = @{@"target":@"h5",@"query":@"ewogICJ1cmwiOiAiaHR0cHM6Ly9oYmMtaW5mby50ZXN0Lmh1YW5nYmFvY2hlLmNvbS9oNVRvQXBwLyIsCiAgInF1ZXJ5IjogInRhYj0xIgp9"};
     
     cellData.imgUrl = param[@"imgUrl"];
     NSString *copyright = param[@"copyright"];
